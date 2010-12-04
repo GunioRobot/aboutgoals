@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Goal do
   before(:each) do
     @valid_attributes = {
-      
+      :name => 'some short name'
     }
   end
 
