@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @feature.name %>
+</p>
+
+<p>
+  <b>Detail:</b>
+  <%=h @feature.detail %>
+</p>
+
+<p>
+  <b>Complete:</b>
+  <%=h @feature.complete %>
+</p>
+
+
+<%= link_to 'Edit', edit_feature_path(@feature) %> |
+<%= link_to 'Back', features_path %>
