@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20101204141051) do
   create_table "goals", :force => true do |t|
     t.string   "name",       :limit => 100,                     :null => false
     t.string   "detail",     :limit => 1000, :default => ""
-    t.boolean  "met",                        :default => false, :null => false
+    t.boolean  "complete",                   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
