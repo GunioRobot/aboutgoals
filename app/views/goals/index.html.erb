@@ -2,10 +2,13 @@
 
 <table>
   <tr>
+	<th align="left">Name</th>
   </tr>
 
 <% @goals.each do |goal| %>
   <tr>
+	<td><%= goal.name %>
+	<td><%= 'Finished' if goal.met? %></td>
     <td><%= link_to 'Show', goal %></td>
     <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
     <td><%= link_to 'Destroy', goal, :confirm => 'Are you sure?', :method => :delete %></td>
