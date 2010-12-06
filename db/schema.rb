@@ -9,14 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101205191619) do
+ActiveRecord::Schema.define(:version => 20101205193037) do
 
   create_table "features", :force => true do |t|
-    t.string   "name"
-    t.string   "detail"
-    t.boolean  "complete"
+    t.string   "name",       :limit => 100,                     :null => false
+    t.string   "string",     :limit => 1000, :default => ""
+    t.string   "detail",     :limit => 1000, :default => ""
+    t.boolean  "complete",                   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "goal_id"
   end
 
   create_table "goals", :force => true do |t|

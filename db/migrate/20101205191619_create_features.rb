@@ -1,9 +1,9 @@
 class CreateFeatures < ActiveRecord::Migration
   def self.up
     create_table :features do |t|
-      t.string :name
-      t.string :detail
-      t.boolean :complete
+      t.string :name, :string, :limit => 100, :null => false
+      t.string :detail, :string, :limit => 1000, :default => ''
+      t.boolean :complete, :null => false, :default => false
 
       t.timestamps
     end
