@@ -21,4 +21,10 @@ describe "/features/edit.html.erb" do
       with_tag('input#feature_complete[name=?]', "feature[complete]")
     end
   end
+  
+  it "should allow goal to be selected" do
+    render 
+    response.should have_tag('select[name=?]','feature[goal_id]')
+  end
+  
 end

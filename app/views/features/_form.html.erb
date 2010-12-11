@@ -10,3 +10,8 @@
     <%= f.label :complete %><br />
     <%= f.check_box :complete %>
   </p>
+
+  <p>
+    <%= f.label :goal %><br />
+	<%= select("feature", "goal_id", Goal.find(:all).collect {|g| [ g.name, g.id ] },  { :include_blank => true }) %>
+  </p>
