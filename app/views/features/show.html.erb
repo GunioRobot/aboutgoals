@@ -15,6 +15,14 @@
   <%=h @feature.complete %>
 </p>
 
+<p>
+  <b>Goal:</b>
+  <% unless @feature.goal.nil? -%>
+    <%= link_to @feature.goal.name, goal_path(@feature.goal) %>
+  <% else -%>
+    No Goal Selected
+  <% end -%>
+</p>
 
 <%= link_to 'Edit', edit_feature_path(@feature) %> |
 <%= link_to 'Back', features_path %>

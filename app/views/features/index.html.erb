@@ -7,16 +7,8 @@
     <th>Complete</th>
   </tr>
 
-<% @features.each do |feature| %>
-  <tr>
-    <td><%=h feature.name %></td>
-    <td><%=h feature.detail %></td>
-    <td><%=h feature.complete %></td>
-    <td><%= link_to 'Show', feature %></td>
-    <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
-    <td><%= link_to 'Destroy', feature, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <%= render :partial => 'row', :collection => @features, :as => :feature %>
+
 </table>
 
 <br />
