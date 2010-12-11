@@ -3,18 +3,8 @@
 <% form_for(@feature) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :detail %><br />
-    <%= f.text_field :detail %>
-  </p>
-  <p>
-    <%= f.label :complete %><br />
-    <%= f.check_box :complete %>
-  </p>
+  <%= render :partial => 'form', :locals => {:f => f} -%>
+
   <p>
     <%= f.submit 'Update' %>
   </p>

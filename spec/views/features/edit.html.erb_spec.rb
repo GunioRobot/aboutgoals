@@ -17,7 +17,7 @@ describe "/features/edit.html.erb" do
 
     response.should have_tag("form[action=#{feature_path(@feature)}][method=post]") do
       with_tag('input#feature_name[name=?]', "feature[name]")
-      with_tag('input#feature_detail[name=?]', "feature[detail]")
+      with_tag('textarea#feature_detail[name=?]', "feature[detail]")
       with_tag('input#feature_complete[name=?]', "feature[complete]")
     end
   end
