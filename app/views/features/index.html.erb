@@ -1,12 +1,8 @@
 <h1>Listing features</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Detail</th>
-    <th>Complete</th>
-  </tr>
 
+  <%= render :partial => 'header' %>
   <%= render :partial => 'row', :collection => @features, :as => :feature %>
 
 </table>

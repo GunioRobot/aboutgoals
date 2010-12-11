@@ -2,6 +2,7 @@
     <td><%=h feature.name %></td>
     <td><%=h feature.detail %></td>
     <td><%=h feature.complete %></td>
+    <td><%= link_to(feature.goal.name,goal_path(feature.goal)) unless feature.goal.nil? %></td>
     <td><%= link_to 'Show', feature %></td>
     <td><%= link_to 'Edit', edit_feature_path(feature) %></td>
     <td><%= link_to 'Destroy', feature, :confirm => 'Are you sure?', :method => :delete %></td>

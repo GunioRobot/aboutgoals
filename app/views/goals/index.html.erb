@@ -1,19 +1,10 @@
 <h1>Listing goals</h1>
 
 <table>
-  <tr>
-	<th align="left">Name</th>
-  </tr>
 
-<% @goals.each do |goal| %>
-  <tr>
-	<td><%= goal.name %> </td>
-	<td><%= status_text(goal) %></td>
-    <td><%= link_to 'Show', goal %></td>
-    <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
-    <td><%= link_to 'Destroy', goal, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+  <%= render :partial => 'header' %>
+  <%= render :partial => 'row', :collection => @goals, :as => :goal %>
+
 </table>
 
 <br />

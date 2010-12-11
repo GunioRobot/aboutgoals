@@ -10,12 +10,8 @@
 <h1>Features</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Detail</th>
-    <th>Complete</th>
-  </tr>
-
+	
+  <%= render :partial => 'features/header' %>
   <%= render :partial => 'features/row', :collection => @goal.features, :as => :feature %>
 
 </table>
