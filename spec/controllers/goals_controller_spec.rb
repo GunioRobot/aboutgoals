@@ -14,6 +14,14 @@ describe GoalsController do
     end
   end
 
+  describe "GET summary" do
+    it "assigns all goals as @goals" do
+      Goal.stub(:find).with(:all).and_return([mock_goal])
+      get :summary
+      assigns[:goals].should == [mock_goal]
+    end
+  end
+
   describe "GET show" do
     it "assigns the requested goal as @goal" do
       Goal.stub(:find).with("37").and_return(mock_goal)

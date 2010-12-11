@@ -10,6 +10,17 @@ class GoalsController < ApplicationController
     end
   end
 
+  # GET /goals/summary
+  # GET /goals/summary.xml
+  def summary
+    @goals = Goal.all
+
+    respond_to do |format|
+      format.html # summary.html.erb
+      format.xml  { render :xml => @goals }
+    end
+  end
+
   # GET /goals/1
   # GET /goals/1.xml
   def show

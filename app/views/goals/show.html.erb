@@ -3,7 +3,8 @@
 <table>
 	<tr><td>Name</td><td><%= @goal.name %></td></tr>
 	<tr><td>Detail</td><td><%= @goal.detail %></td></tr>
-	<tr><td>Met</td><td><%= @goal.complete? %></td></tr>
+	<tr><td>Complete</td><td><%= @goal.complete? %></td></tr>
+	<tr><td>Status</td><td><%= status_text(@goal) %></td></tr>
 <table>
 
 <%= link_to 'Edit', edit_goal_path(@goal) %> |

@@ -6,6 +6,10 @@ describe GoalsController do
       { :get => "/goals" }.should route_to(:controller => "goals", :action => "index")
     end
 
+    it "recognizes and generates #index" do
+      { :get => "/goals/summary" }.should route_to(:controller => "goals", :action => "summary")
+    end
+
     it "recognizes and generates #new" do
       { :get => "/goals/new" }.should route_to(:controller => "goals", :action => "new")
     end
