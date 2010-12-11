@@ -1,0 +1,21 @@
+<h1>Summarising goals</h1>
+
+<table>
+  <tr>
+	<th align="left">Name</th>
+  </tr>
+
+<% @goals.each do |goal| %>
+  <tr>
+	<td><%= goal.name %>
+	<td><%= 'Finished' if goal.complete? %></td>
+    <td><%= link_to 'Show', goal %></td>
+    <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+    <td><%= link_to 'Destroy', goal, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New goal', new_goal_path %>
