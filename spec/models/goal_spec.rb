@@ -12,6 +12,12 @@ describe Goal do
     Goal.create!(@valid_attributes)
   end
 
+  shared_examples_for 'goal :not_started' do
+    it "should have status :not_started" do
+       @it.status.should == :not_started 
+    end
+  end
+
   shared_examples_for 'goal :in_progress' do
     it "should have status :in_progress" do
        @it.status.should == :in_progress 
@@ -31,10 +37,7 @@ describe Goal do
   end
   
   context "with no features" do
-    
-    it "should have status :not_started" do
-       @it.status.should == :not_started 
-    end
+    it_should_behave_like 'goal :not_started'
 
     context "and with goal set as complete" do
       before(:each) { @it.complete = true }
