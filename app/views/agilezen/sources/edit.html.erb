@@ -1,0 +1,24 @@
+<h1>Editing source</h1>
+
+<% form_for(@agilezen_source) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :api_key %><br />
+    <%= f.text_field :api_key %>
+  </p>
+  <p>
+    <%= f.label :project %><br />
+    <%= f.text_field :project %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @agilezen_source %> |
+<%= link_to 'Back', agilezen_sources_path %>

@@ -1,0 +1,18 @@
+<p>
+  <b>Api key:</b>
+  <%=h @agilezen_source.api_key %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%=h @agilezen_source.project %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @agilezen_source.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_agilezen_source_path(@agilezen_source) %> |
+<%= link_to 'Back', agilezen_sources_path %>

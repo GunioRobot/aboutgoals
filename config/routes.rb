@@ -1,5 +1,15 @@
 ActionController::Routing::Routes.draw do |map|
+
+  # map.resources :agilezen_sources, :controller => 'agilezen/sources'
+
+  map.resource :agilezen do |agilezen|
+    agilezen.resources :sources, :controller => 'agilezen/sources'
+  end
+
   map.resources :features
+
+  
+  map.resources :goals, :collection => { :summary => :get }
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -36,8 +46,6 @@ ActionController::Routing::Routes.draw do |map|
   # map.root :controller => "welcome"
 
   # See how all your routes lay out with "rake routes"
-  
-  map.resources :goals, :collection => { :summary => :get }
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
