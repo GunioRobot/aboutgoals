@@ -1,15 +1,16 @@
-<h1>Listing features</h1>
+<h1>Listing Agilezen::features</h1>
 
 <table>
   <tr>
     <th>External</th>
+    <th>Source</th>
   </tr>
 
 <% @agilezen_features.each do |feature| %>
   <tr>
     <td><%=h feature.external_id %></td>
+    <td><%= link_to( feature.source.name, agilezen_source_path(feature.source) ) unless feature.source.nil? %></td>
     <td><%= link_to 'Show', feature %></td>
-    <td><%= link_to 'Edit', edit_agilezen_feature_path(feature) %></td>
     <td><%= link_to 'Destroy', feature, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
