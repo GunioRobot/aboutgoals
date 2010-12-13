@@ -1,9 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
-
   # map.resources :agilezen_sources, :controller => 'agilezen/sources'
 
   map.resource :agilezen do |agilezen|
     agilezen.resources :sources, :controller => 'agilezen/sources'
+    agilezen.resources :features, :controller => 'agilezen/features'
   end
 
   map.resources :features
