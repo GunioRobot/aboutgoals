@@ -3,10 +3,10 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :agilezen do |agilezen|
     agilezen.resources :sources, :controller => 'agilezen/sources'
-    agilezen.resources :features, :controller => 'agilezen/features'
+    agilezen.resources :tasks, :controller => 'agilezen/tasks'
   end
 
-  map.resources :features
+  map.resources :tasks
 
   
   map.resources :goals, :collection => { :summary => :get }

@@ -1,0 +1,9 @@
+  <tr>
+    <td><%=h task.name %></td>
+    <td><%=h task.detail %></td>
+    <td><%=h task.complete %></td>
+    <td><%= link_to(task.goal.name,goal_path(task.goal)) unless task.goal.nil? %></td>
+    <td><%= link_to 'Show', task %></td>
+    <td><%= link_to 'Edit', edit_task_path(task) %></td>
+    <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>

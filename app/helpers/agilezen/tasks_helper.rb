@@ -1,0 +1,2 @@
+module Agilezen::TasksHelper
+end

@@ -1,7 +1,7 @@
   <tr>
 	<td><%=h goal.name %> </td>
 	<td><%= status_text(goal) %></td>
-	<td><%= goal.features.count if goal.features.count > 0 %></td>
+	<td><%= goal.tasks.count if goal.tasks.count > 0 %></td>
     <td><%= link_to 'Show', goal %></td>
     <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
     <td><%= link_to 'Destroy', goal, :confirm => 'Are you sure?', :method => :delete %></td>

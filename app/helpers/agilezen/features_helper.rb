@@ -1,2 +1,0 @@
-module Agilezen::FeaturesHelper
-end

@@ -1,0 +1,28 @@
+<h1>Show Task</h1>
+
+<p>
+  <b>Name:</b>
+  <%=h @task.name %>
+</p>
+
+<p>
+  <b>Detail:</b>
+  <%=h @task.detail %>
+</p>
+
+<p>
+  <b>Complete:</b>
+  <%=h @task.complete %>
+</p>
+
+<p>
+  <b>Goal:</b>
+  <% unless @task.goal.nil? -%>
+    <%= link_to @task.goal.name, goal_path(@task.goal) %>
+  <% else -%>
+    No Goal Selected
+  <% end -%>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>

@@ -36,7 +36,7 @@ describe Goal do
     end
   end
   
-  context "with no features" do
+  context "with no tasks" do
     it_should_behave_like 'goal :not_started'
 
     context "and with goal set as complete" do
@@ -45,11 +45,11 @@ describe Goal do
     end
   end
   
-  context "with one incomplete feature" do
+  context "with one incomplete task" do
     before(:each) do
-      Feature.new.should respond_to(:complete?) # sanity check 
-      @feature1 = stub_model(Feature, :complete? => false)
-      @it.stub!(:features).and_return([@feature1])
+      Task.new.should respond_to(:complete?) # sanity check 
+      @task1 = stub_model(Task, :complete? => false)
+      @it.stub!(:tasks).and_return([@task1])
     end
 
     it_should_behave_like 'goal :in_progress'
@@ -59,10 +59,10 @@ describe Goal do
       it_should_behave_like 'goal :fully_complete'
     end
 
-    context "and one complete feature" do
+    context "and one complete task" do
       before(:each) do
-        @feature2 = stub_model(Feature, :complete? => true)
-        @it.stub!(:features).and_return([@feature1,@feature2])
+        @task2 = stub_model(Task, :complete? => true)
+        @it.stub!(:tasks).and_return([@task1,@task2])
       end
 
       it_should_behave_like 'goal :in_progress'
@@ -74,10 +74,10 @@ describe Goal do
     end
   end
 
-  context "with one complete feature" do
+  context "with one complete task" do
     before(:each) do
-      @feature1 = stub_model(Feature, :complete? => true)
-      @it.stub!(:features).and_return([@feature1])
+      @task1 = stub_model(Task, :complete? => true)
+      @it.stub!(:tasks).and_return([@task1])
     end
 
     it_should_behave_like 'goal :for_review'
