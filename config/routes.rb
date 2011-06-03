@@ -9,7 +9,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tasks
 
   
-  map.resources :goals, :collection => { :summary => :get }
+  map.resources :goals, :collection => { :summary => :get } , :member => { :expanded => :get }
 
   map.root :controller => "goals", :action => 'summary'
 

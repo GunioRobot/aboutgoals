@@ -1,0 +1,19 @@
+
+<div class="card-goal">
+  <div class="card-part-header">
+    <p><%= @goal.name %></p>
+  </div>
+  <div class="card-part-body">
+    <p><%= @goal.detail %></p>
+  </div>
+  <div class="card-part-footer">
+    <p><%= status_text(@goal) %></p>
+  </div>
+  <div class="card-toolbar">
+    <p>Tools:
+    <%= link_to 'Edit', edit_goal_path(@goal) %>
+    <%= link_to 'Expand', expanded_goal_path(@goal) %>
+    </p>
+  </div>
+</div>
+

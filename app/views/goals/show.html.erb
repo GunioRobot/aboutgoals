@@ -1,31 +1,6 @@
-<h1>Show goal</h1>
+<h1>Show Goal</h1>
 
-<div class="card-goal">
-  <div class="card-part-header">
-    <p><%= @goal.name %></p>
-  </div>
-  <div class="card-part-body">
-    <p><%= @goal.detail %></p>
-  </div>
-  <div class="card-part-footer">
-    <p><%= status_text(@goal) %></p>
-  </div>
-  <div class="card-toolbar">
-    <p>Tools:
-    <%= link_to 'Edit', edit_goal_path(@goal) %>
-    </p>
-  </div>
-</div>
-
+<%= render :partial => 'show_card' %>
 
 <p><%= link_to 'Back', goals_path %></p>
-
-<h1>Tasks</h1>
-
-<table>
-	
-  <%= render :partial => 'tasks/header' %>
-  <%= render :partial => 'tasks/row', :collection => @goal.tasks, :as => :task %>
-
-</table>
 

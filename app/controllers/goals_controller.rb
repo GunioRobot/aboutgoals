@@ -32,6 +32,18 @@ class GoalsController < ApplicationController
     end
   end
 
+  # GET /goals/1/expanded
+  # GET /goals/1/expanded.xml
+  def expanded
+    @goal = Goal.find(params[:id])
+    @children = @goal.tasks
+
+    respond_to do |format|
+      format.html # expanded.html.erb
+      format.xml  { render :xml => @goal }
+    end
+  end
+
   # GET /goals/new
   # GET /goals/new.xml
   def new

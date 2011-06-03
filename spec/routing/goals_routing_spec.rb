@@ -18,6 +18,10 @@ describe GoalsController do
       { :get => "/goals/1" }.should route_to(:controller => "goals", :action => "show", :id => "1")
     end
 
+    it "recognizes and generates #expanded" do
+      { :get => "/goals/1/expanded" }.should route_to(:controller => "goals", :action => "expanded", :id => "1")
+    end
+
     it "recognizes and generates #edit" do
       { :get => "/goals/1/edit" }.should route_to(:controller => "goals", :action => "edit", :id => "1")
     end

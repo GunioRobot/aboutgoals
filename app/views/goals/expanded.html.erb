@@ -1,0 +1,15 @@
+<h1>Show expanded Goal</h1>
+
+<%= render :partial => 'show_card' %>
+
+<p><%= link_to 'Back', goals_path %></p>
+
+<h1>Tasks</h1>
+
+<table>
+	
+  <%= render :partial => 'tasks/header' %>
+  <%= render :partial => 'tasks/row', :collection => @goal.tasks, :as => :task %>
+
+</table>
+
