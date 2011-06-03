@@ -1,0 +1,35 @@
+.card-goal ,
+.card-part-header {
+}
+.card-goal {
+  padding 0px;
+  border: 3px solid;
+  background-color: #93EEAA;
+  border-color: #4AE371;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.card-goal .card-part-header ,
+.card-goal .card-part-footer ,
+.card-goal .card-part-body ,
+.card-goal .card-toolbar {
+  border-bottom: 1px solid;
+  border-color: inherit;
+}
+.card-goal .card-part-body ,
+.card-goal .card-toolbar {
+  background-color: #B8F5C8;
+}
+
+.card-goal .card-toolbar {
+  border-bottom: 0px solid;
+}
+.card-goal p {
+  font-size: 1em;
+  padding: 6px;
+  margin: 0;
+}
+.card-goal .card-part-header {
+  font-weight: bold ;
+}

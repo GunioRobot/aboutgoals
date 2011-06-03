@@ -1,12 +1,25 @@
 <h1>Show goal</h1>
 
-<table>
-	<tr><td>Name</td><td><%= @goal.name %></td></tr>
-	<tr><td>Detail</td><td><%= @goal.detail %></td></tr>
-	<tr><td>Complete</td><td><%= @goal.complete? %></td></tr>
-	<tr><td>Status</td><td><%= status_text(@goal) %></td></tr>
-<table>
-	
+<div class="card-goal">
+  <div class="card-part-header">
+    <p><%= @goal.name %></p>
+  </div>
+  <div class="card-part-body">
+    <p><%= @goal.detail %></p>
+  </div>
+  <div class="card-part-footer">
+    <p><%= status_text(@goal) %></p>
+  </div>
+  <div class="card-toolbar">
+    <p>Tools:
+    <%= link_to 'Edit', edit_goal_path(@goal) %>
+    </p>
+  </div>
+</div>
+
+
+<p><%= link_to 'Back', goals_path %></p>
+
 <h1>Tasks</h1>
 
 <table>
@@ -16,6 +29,3 @@
 
 </table>
 
-
-<%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %>
