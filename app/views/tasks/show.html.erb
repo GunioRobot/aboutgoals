@@ -1,20 +1,24 @@
 <h1>Show Task</h1>
 
-<p>
-  <b>Name:</b>
-  <%=h @task.name %>
-</p>
+<div class="card-task">
+  <div class="card-part-header">
+    <p><%= @task.name %></p>
+  </div>
+  <div class="card-part-body">
+    <p><%= @task.detail %></p>
+  </div>
+  <div class="card-part-footer">
+    <p><%= status_text(@task) %></p>
+  </div>
+  <div class="card-toolbar">
+    <p>Tools:
+    <%= link_to 'Edit', edit_task_path(@task) %>
+    </p>
+  </div>
+</div>
 
-<p>
-  <b>Detail:</b>
-  <%=h @task.detail %>
-</p>
-
-<p>
-  <b>Complete:</b>
-  <%=h @task.complete %>
-</p>
-
+<p><%= link_to 'Back', tasks_path %></p>
+ 
 <p>
   <b>Goal:</b>
   <% unless @task.goal.nil? -%>
@@ -24,5 +28,3 @@
   <% end -%>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>

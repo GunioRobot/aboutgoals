@@ -14,6 +14,6 @@ describe "/tasks/show.html.erb" do
     render
     response.should have_text(/value\ for\ name/)
     response.should have_text(/value\ for\ detail/)
-    response.should have_text(/false/)
+    response.should have_text(/In\ Progress/)
   end
 end
