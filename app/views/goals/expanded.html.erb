@@ -6,10 +6,5 @@
 
 <h1>Tasks</h1>
 
-<table>
-	
-  <%= render :partial => 'tasks/header' %>
-  <%= render :partial => 'tasks/row', :collection => @goal.tasks, :as => :task %>
-
-</table>
+<%= render :partial => 'tasks/small_card', :collection => @children, :as => :task %>
 

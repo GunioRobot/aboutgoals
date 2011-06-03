@@ -6,6 +6,7 @@
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+  margin-bottom: 4px;
 }
 .card-goal .card-part-body ,
 .card-goal .card-toolbar {
@@ -26,6 +27,7 @@
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
+  margin-bottom: 4px;
 }
 .card-task .card-part-body ,
 .card-task .card-toolbar {
