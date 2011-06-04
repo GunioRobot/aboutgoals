@@ -22,6 +22,14 @@ describe TasksController do
     end
   end
 
+  describe "GET expanded" do
+    it "assigns the requested task as @task" do
+      Task.stub(:find).with("37").and_return(mock_task)
+      get :expanded, :id => "37"
+      assigns[:task].should equal(mock_task)
+    end
+  end
+
   describe "GET new" do
     it "assigns a new task as @task" do
       Task.stub(:new).and_return(mock_task)

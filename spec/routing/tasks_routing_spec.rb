@@ -14,6 +14,10 @@ describe TasksController do
       { :get => "/tasks/1" }.should route_to(:controller => "tasks", :action => "show", :id => "1")
     end
 
+    it "recognizes and generates #expanded" do
+      { :get => "/tasks/1/expanded" }.should route_to(:controller => "tasks", :action => "expanded", :id => "1")
+    end
+
     it "recognizes and generates #edit" do
       { :get => "/tasks/1/edit" }.should route_to(:controller => "tasks", :action => "edit", :id => "1")
     end

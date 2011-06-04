@@ -21,6 +21,17 @@ class TasksController < ApplicationController
     end
   end
 
+  # GET /tasks/1/expanded
+  # GET /tasks/1/expanded.xml
+  def expanded
+    @task = Task.find(params[:id])
+
+    respond_to do |format|
+      format.html # expanded.html.erb
+      format.xml  { render :xml => @task }
+    end
+  end
+
   # GET /tasks/new
   # GET /tasks/new.xml
   def new

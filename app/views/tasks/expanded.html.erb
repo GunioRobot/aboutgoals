@@ -1,0 +1,15 @@
+<h1>Show expanded Task</h1>
+
+<%= render :partial => 'show_card' %> 
+
+<p><%= link_to 'Back', tasks_path %></p>
+ 
+<p>
+  <b>Goal:</b>
+  <% unless @task.goal.nil? -%>
+    <%= link_to @task.goal.name, goal_path(@task.goal) %>
+  <% else -%>
+    No Goal Selected
+  <% end -%>
+</p>
+
