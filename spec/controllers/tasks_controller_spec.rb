@@ -23,10 +23,18 @@ describe TasksController do
   end
 
   describe "GET expanded" do
+    before(:each) do
+      Task.stub(:find).with("37").and_return(mock_task(:goal => 'some goal'))
+    end
+
     it "assigns the requested task as @task" do
-      Task.stub(:find).with("37").and_return(mock_task)
       get :expanded, :id => "37"
       assigns[:task].should equal(mock_task)
+    end
+
+    it "assigns the parent goal as @parents array" do
+      get :expanded, :id => "37"
+      assigns[:parents].should == ['some goal']
     end
   end
 

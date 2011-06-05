@@ -1,5 +1,11 @@
 <h1>Show expanded Task</h1>
 
+<h2>Goals</h2>
+
+<%= render :partial => 'goals/small_card', :collection => @parents, :as => :goal %>
+
+<h2>Task</h2>
+
 <%= render :partial => 'show_card' %> 
 
 <p><%= link_to 'Back', tasks_path %></p>

@@ -25,6 +25,7 @@ class TasksController < ApplicationController
   # GET /tasks/1/expanded.xml
   def expanded
     @task = Task.find(params[:id])
+    @parents = [@task.goal]
 
     respond_to do |format|
       format.html # expanded.html.erb
