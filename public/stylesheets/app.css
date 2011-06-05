@@ -1,4 +1,4 @@
-.card-goal {
+.card.goal {
   padding 0px;
   border: 3px solid;
   background-color: #93EEAA;
@@ -8,11 +8,11 @@
   -webkit-border-radius: 4px;
   margin-bottom: 4px;
 }
-.card-goal .card-part-body ,
-.card-goal .card-toolbar {
+.card.goal .card-part-body ,
+.card.goal .card-toolbar {
   background-color: #B8F5C8;
 }
-.card-goal p {
+.card.goal p {
   font-size: 1em;
   padding: 6px;
   margin: 0;
@@ -22,7 +22,7 @@
   background-color: #B8F5C8;
 }
 
-.card-task {
+.card.task {
   padding 0px;
   border: 3px solid;
   background-color: #FFD7B3;
@@ -32,11 +32,11 @@
   -webkit-border-radius: 4px;
   margin-bottom: 4px;
 }
-.card-task .card-part-body ,
-.card-task .card-toolbar {
+.card.task .card-part-body ,
+.card.task .card-toolbar {
   background-color: #FFE5C0;
 }
-.card-task p {
+.card.task p {
   font-size: 1em;
   padding: 6px;
   margin: 0;
