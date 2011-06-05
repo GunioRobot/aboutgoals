@@ -10,6 +10,12 @@
 </head>
 <body>
 
+<%= render :partial => 'layouts/app_header' %>
+
+<div class="section-header tasks">
+  <h2>Tasks</h2>
+</div>
+
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield %>
