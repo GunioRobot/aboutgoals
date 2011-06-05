@@ -12,6 +12,7 @@
     <p>Tools:
     <%= link_to 'Edit', edit_task_path(@task) %>
     <%= link_to 'Expand', expanded_task_path(@task) %>
+    <%= link_to 'Destroy', @task, :confirm => 'Are you sure?', :method => :delete %>
     </p>
   </div>
 </div>

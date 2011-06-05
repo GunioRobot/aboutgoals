@@ -1,4 +1,3 @@
-
 <div class="card-goal">
   <div class="card-part-header">
     <p><%= @goal.name %></p>
@@ -13,6 +12,7 @@
     <p>Tools:
     <%= link_to 'Edit', edit_goal_path(@goal) %>
     <%= link_to 'Expand', expanded_goal_path(@goal) %>
+    <%= link_to 'Destroy', @goal, :confirm => 'Are you sure?', :method => :delete %>
     </p>
   </div>
 </div>
