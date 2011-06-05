@@ -1,48 +1,15 @@
-.card.goal {
+.card {
   padding 0px;
   border: 3px solid;
-  background-color: #93EEAA;
-  border-color: #4AE371;
   border-radius: 4px;
   -moz-border-radius: 4px;
   -webkit-border-radius: 4px;
   margin-bottom: 4px;
 }
-.card.goal .card-part-body ,
-.card.goal .card-toolbar {
-  background-color: #B8F5C8;
-}
-.card.goal p {
+.card p {
   font-size: 1em;
   padding: 6px;
   margin: 0;
-}
-
-.section-header.goals {
-  background-color: #B8F5C8;
-}
-
-.card.task {
-  padding 0px;
-  border: 3px solid;
-  background-color: #FFD7B3;
-  border-color: #FFAC62;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  margin-bottom: 4px;
-}
-.card.task .card-part-body ,
-.card.task .card-toolbar {
-  background-color: #FFE5C0;
-}
-.card.task p {
-  font-size: 1em;
-  padding: 6px;
-  margin: 0;
-}
-.section-header.tasks {
-  background-color: #FFE5C0;
 }
 
 .app-header {
@@ -67,4 +34,31 @@
 }
 .card-part-header {
   font-weight: bold ;
+}
+
+
+
+.card.goal {
+  background-color: #93EEAA;
+  border-color: #4AE371;
+}
+.card.goal .card-part-body ,
+.card.goal .card-toolbar {
+  background-color: #B8F5C8;
+}
+.section-header.goals {
+  background-color: #B8F5C8;
+}
+
+.card.task {
+  background-color: #FFD7B3;
+  border-color: #FFAC62;
+}
+.card.task .card-part-body ,
+.card.task .card-toolbar {
+  background-color: #FFE5C0;
+}
+.section-header.tasks {
+  background-color: #FFE5C0;
+}
 }
