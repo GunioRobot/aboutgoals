@@ -1,10 +1,5 @@
 <h1>Summarising goals</h1>
 
-<table>
-  <%= render :partial => 'header' %>
-  <%= render :partial => 'row', :collection => @goals, :as => :goal %>
-</table>
-
-<br />
+<%= render :partial => 'goals/small_card', :collection => @goals, :as => :goal %>
 
 <%= link_to 'New goal', new_goal_path %>
