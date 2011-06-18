@@ -18,7 +18,8 @@
   padding: 6px
 }
 .section-header {
-  padding: 6px
+  padding: 6px ;
+  margin-bottom: 30px;
 }
 
 .card-part-header ,
@@ -37,6 +38,22 @@
 }
 
 
+
+.card.container {
+  background-color: #D8D8D8;
+  border-color: #C0C0C0;
+  margin-top: 30px;
+}
+.card.container .card-part-body ,
+.card.container .card-toolbar {
+  background-color: #FFFFFF;
+}
+.card.container .card-part-body {
+  padding: 2px ;
+}
+.card.container .card {
+  margin: 10px ;
+}
 
 .card.goal {
   background-color: #93EEAA;
@@ -60,5 +77,4 @@
 }
 .section-header.tasks {
   background-color: #FFE5C0;
-}
 }
