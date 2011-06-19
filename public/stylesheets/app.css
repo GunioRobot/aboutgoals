@@ -43,6 +43,7 @@
   background-color: #D8D8D8;
   border-color: #C0C0C0;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 .card.container .card-part-body ,
 .card.container .card-toolbar {
@@ -53,6 +54,7 @@
 }
 .card.container .card {
   margin: 10px ;
+  width: 500px;
 }
 
 .card.goal {
