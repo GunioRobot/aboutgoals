@@ -1,3 +1,19 @@
+body {
+  margin: 0px;
+}
+.app-header {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 12px
+}
+.section-header {
+  padding: 12px ;
+  margin-bottom: 30px;
+}
+.content {
+ padding: 20px;
+}
+
 .card {
   padding 0px;
   border: 3px solid;
@@ -10,16 +26,6 @@
   font-size: 1em;
   padding: 6px;
   margin: 0;
-}
-
-.app-header {
-  background-color: #000000;
-  color: #ffffff;
-  padding: 6px
-}
-.section-header {
-  padding: 6px ;
-  margin-bottom: 30px;
 }
 
 .card-part-header ,
