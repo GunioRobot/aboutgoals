@@ -13,6 +13,11 @@ body {
 .content {
  padding: 20px;
 }
+.menu {
+  margin: 0px;
+  border: 0px;
+  padding: 6px;
+}
 
 .card {
   padding 0px;
@@ -60,7 +65,7 @@ body {
 }
 .card.container .card {
   margin: 10px ;
-  width: 500px;
+  max-width: 400px;
 }
 
 .card.goal {
