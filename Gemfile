@@ -3,6 +3,7 @@ source :gemcutter
 gem "rails", "=2.3.12"
 gem "sqlite3-ruby"
 gem "rdoc", ">=2.4.2"
+gem "rake", "0.8.7"
 
 
 group :test do
