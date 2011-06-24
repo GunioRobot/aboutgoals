@@ -1,7 +1,8 @@
 source "http://rubygems.org"
 source :gemcutter
-gem "rails", "~>2.3.4"
+gem "rails", "=2.3.12"
 gem "sqlite3-ruby"
+gem "rdoc", ">=2.4.2"
 
 
 group :test do
