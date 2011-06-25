@@ -1,6 +1,6 @@
 <div class="card container">
   <div class="card-part-header">
-    <p>Motivation for: <%= @task.name %></p>
+    <p>Motivation for: <%= @activity.name %></p>
   </div>
   <div class="card-part-body">
 <%= render :partial => 'goals/small_card', :collection => @parents, :as => :goal %>
@@ -9,5 +9,5 @@
 
 <%= render :partial => 'show_card' %> 
 
-<%= link_to 'Back', @task %>
+<%= link_to 'Back', @activity %>
  

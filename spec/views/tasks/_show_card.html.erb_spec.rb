@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe "/tasks/_show_card.html.erb" do
-  include TasksHelper
+describe "/activities/_show_card.html.erb" do
+  include ActivitiesHelper
   before(:each) do
-    assigns[:task] = @task = stub_model(Task,
+    assigns[:activity] = @activity = stub_model(Activity,
       :name => "value for name",
       :detail => "value for detail",
       :complete => false

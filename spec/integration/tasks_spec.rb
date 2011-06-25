@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe "Tasks" do
+describe "Activities" do
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Agilezen::Task do
+describe Agilezen::Activity do
   before(:each) do
     @valid_attributes = {
       :external_id => "value for external_id"
@@ -8,6 +8,6 @@ describe Agilezen::Task do
   end
 
   it "should create a new instance given valid attributes" do
-    Agilezen::Task.create!(@valid_attributes)
+    Agilezen::Activity.create!(@valid_attributes)
   end
 end

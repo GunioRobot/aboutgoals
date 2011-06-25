@@ -1,2 +1,2 @@
-module Agilezen::TasksHelper
+module Agilezen::ActivitiesHelper
 end

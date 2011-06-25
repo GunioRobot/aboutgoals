@@ -1,14 +1,14 @@
 require 'spec_helper'
 
-describe "/tasks/_small_card.html.erb" do
-  include TasksHelper
+describe "/activities/_small_card.html.erb" do
+  include ActivitiesHelper
   before(:each) do
-    @task = stub_model(Task,
+    @activity = stub_model(Activity,
       :name => "value for name",
       :detail => "value for detail",
       :complete => false
     )
-    template.stub!(:task).and_return(@task)
+    template.stub!(:activity).and_return(@activity)
   end
 
   it "renders attributes" do

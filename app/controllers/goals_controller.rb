@@ -36,7 +36,7 @@ class GoalsController < ApplicationController
   # GET /goals/1/expanded.xml
   def expanded
     @goal = Goal.find(params[:id])
-    @children = @goal.tasks
+    @children = @goal.activities
 
     respond_to do |format|
       format.html # expanded.html.erb

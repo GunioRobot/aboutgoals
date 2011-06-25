@@ -1,35 +1,35 @@
 require 'spec_helper'
 
-describe TasksController do
+describe ActivitiesController do
 
-  def mock_task(stubs={})
-    @mock_task ||= mock_model(Task, stubs)
+  def mock_activity(stubs={})
+    @mock_activity ||= mock_model(Activity, stubs)
   end
 
   describe "GET index" do
-    it "assigns all tasks as @tasks" do
-      Task.stub(:find).with(:all).and_return([mock_task])
+    it "assigns all activities as @activities" do
+      Activity.stub(:find).with(:all).and_return([mock_activity])
       get :index
-      assigns[:tasks].should == [mock_task]
+      assigns[:activities].should == [mock_activity]
     end
   end
 
   describe "GET show" do
-    it "assigns the requested task as @task" do
-      Task.stub(:find).with("37").and_return(mock_task)
+    it "assigns the requested activity as @activity" do
+      Activity.stub(:find).with("37").and_return(mock_activity)
       get :show, :id => "37"
-      assigns[:task].should equal(mock_task)
+      assigns[:activity].should equal(mock_activity)
     end
   end
 
   describe "GET expanded" do
     before(:each) do
-      Task.stub(:find).with("37").and_return(mock_task(:goal => 'some goal'))
+      Activity.stub(:find).with("37").and_return(mock_activity(:goal => 'some goal'))
     end
 
-    it "assigns the requested task as @task" do
+    it "assigns the requested activity as @activity" do
       get :expanded, :id => "37"
-      assigns[:task].should equal(mock_task)
+      assigns[:activity].should equal(mock_activity)
     end
 
     it "assigns the parent goal as @parents array" do
@@ -39,47 +39,47 @@ describe TasksController do
   end
 
   describe "GET new" do
-    it "assigns a new task as @task" do
-      Task.stub(:new).and_return(mock_task)
+    it "assigns a new activity as @activity" do
+      Activity.stub(:new).and_return(mock_activity)
       get :new
-      assigns[:task].should equal(mock_task)
+      assigns[:activity].should equal(mock_activity)
     end
   end
 
   describe "GET edit" do
-    it "assigns the requested task as @task" do
-      Task.stub(:find).with("37").and_return(mock_task)
+    it "assigns the requested activity as @activity" do
+      Activity.stub(:find).with("37").and_return(mock_activity)
       get :edit, :id => "37"
-      assigns[:task].should equal(mock_task)
+      assigns[:activity].should equal(mock_activity)
     end
   end
 
   describe "POST create" do
 
     describe "with valid params" do
-      it "assigns a newly created task as @task" do
-        Task.stub(:new).with({'these' => 'params'}).and_return(mock_task(:save => true))
-        post :create, :task => {:these => 'params'}
-        assigns[:task].should equal(mock_task)
+      it "assigns a newly created activity as @activity" do
+        Activity.stub(:new).with({'these' => 'params'}).and_return(mock_activity(:save => true))
+        post :create, :activity => {:these => 'params'}
+        assigns[:activity].should equal(mock_activity)
       end
 
-      it "redirects to the created task" do
-        Task.stub(:new).and_return(mock_task(:save => true))
-        post :create, :task => {}
-        response.should redirect_to(task_url(mock_task))
+      it "redirects to the created activity" do
+        Activity.stub(:new).and_return(mock_activity(:save => true))
+        post :create, :activity => {}
+        response.should redirect_to(activity_url(mock_activity))
       end
     end
 
     describe "with invalid params" do
-      it "assigns a newly created but unsaved task as @task" do
-        Task.stub(:new).with({'these' => 'params'}).and_return(mock_task(:save => false))
-        post :create, :task => {:these => 'params'}
-        assigns[:task].should equal(mock_task)
+      it "assigns a newly created but unsaved activity as @activity" do
+        Activity.stub(:new).with({'these' => 'params'}).and_return(mock_activity(:save => false))
+        post :create, :activity => {:these => 'params'}
+        assigns[:activity].should equal(mock_activity)
       end
 
       it "re-renders the 'new' template" do
-        Task.stub(:new).and_return(mock_task(:save => false))
-        post :create, :task => {}
+        Activity.stub(:new).and_return(mock_activity(:save => false))
+        post :create, :activity => {}
         response.should render_template('new')
       end
     end
@@ -89,40 +89,40 @@ describe TasksController do
   describe "PUT update" do
 
     describe "with valid params" do
-      it "updates the requested task" do
-        Task.should_receive(:find).with("37").and_return(mock_task)
-        mock_task.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :task => {:these => 'params'}
+      it "updates the requested activity" do
+        Activity.should_receive(:find).with("37").and_return(mock_activity)
+        mock_activity.should_receive(:update_attributes).with({'these' => 'params'})
+        put :update, :id => "37", :activity => {:these => 'params'}
       end
 
-      it "assigns the requested task as @task" do
-        Task.stub(:find).and_return(mock_task(:update_attributes => true))
+      it "assigns the requested activity as @activity" do
+        Activity.stub(:find).and_return(mock_activity(:update_attributes => true))
         put :update, :id => "1"
-        assigns[:task].should equal(mock_task)
+        assigns[:activity].should equal(mock_activity)
       end
 
-      it "redirects to the task" do
-        Task.stub(:find).and_return(mock_task(:update_attributes => true))
+      it "redirects to the activity" do
+        Activity.stub(:find).and_return(mock_activity(:update_attributes => true))
         put :update, :id => "1"
-        response.should redirect_to(task_url(mock_task))
+        response.should redirect_to(activity_url(mock_activity))
       end
     end
 
     describe "with invalid params" do
-      it "updates the requested task" do
-        Task.should_receive(:find).with("37").and_return(mock_task)
-        mock_task.should_receive(:update_attributes).with({'these' => 'params'})
-        put :update, :id => "37", :task => {:these => 'params'}
+      it "updates the requested activity" do
+        Activity.should_receive(:find).with("37").and_return(mock_activity)
+        mock_activity.should_receive(:update_attributes).with({'these' => 'params'})
+        put :update, :id => "37", :activity => {:these => 'params'}
       end
 
-      it "assigns the task as @task" do
-        Task.stub(:find).and_return(mock_task(:update_attributes => false))
+      it "assigns the activity as @activity" do
+        Activity.stub(:find).and_return(mock_activity(:update_attributes => false))
         put :update, :id => "1"
-        assigns[:task].should equal(mock_task)
+        assigns[:activity].should equal(mock_activity)
       end
 
       it "re-renders the 'edit' template" do
-        Task.stub(:find).and_return(mock_task(:update_attributes => false))
+        Activity.stub(:find).and_return(mock_activity(:update_attributes => false))
         put :update, :id => "1"
         response.should render_template('edit')
       end
@@ -131,16 +131,16 @@ describe TasksController do
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested task" do
-      Task.should_receive(:find).with("37").and_return(mock_task)
-      mock_task.should_receive(:destroy)
+    it "destroys the requested activity" do
+      Activity.should_receive(:find).with("37").and_return(mock_activity)
+      mock_activity.should_receive(:destroy)
       delete :destroy, :id => "37"
     end
 
-    it "redirects to the tasks list" do
-      Task.stub(:find).and_return(mock_task(:destroy => true))
+    it "redirects to the activities list" do
+      Activity.stub(:find).and_return(mock_activity(:destroy => true))
       delete :destroy, :id => "1"
-      response.should redirect_to(tasks_url)
+      response.should redirect_to(activities_url)
     end
   end
 

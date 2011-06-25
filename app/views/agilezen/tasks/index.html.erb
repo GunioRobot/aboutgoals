@@ -1,4 +1,4 @@
-<h1>Listing Agilezen::tasks</h1>
+<h1>Listing Agilezen::activities</h1>
 
 <table>
   <tr>
@@ -6,12 +6,12 @@
     <th>Source</th>
   </tr>
 
-<% @agilezen_tasks.each do |task| %>
+<% @agilezen_activities.each do |activity| %>
   <tr>
-    <td><%=h task.external_id %></td>
-    <td><%= link_to( task.source.name, agilezen_source_path(task.source) ) unless task.source.nil? %></td>
-    <td><%= link_to 'Show', task %></td>
-    <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%=h activity.external_id %></td>
+    <td><%= link_to( activity.source.name, agilezen_source_path(activity.source) ) unless activity.source.nil? %></td>
+    <td><%= link_to 'Show', activity %></td>
+    <td><%= link_to 'Destroy', activity, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

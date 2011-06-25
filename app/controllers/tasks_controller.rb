@@ -1,96 +1,96 @@
-class TasksController < ApplicationController
-  # GET /tasks
-  # GET /tasks.xml
+class ActivitiesController < ApplicationController
+  # GET /activities
+  # GET /activities.xml
   def index
-    @tasks = Task.all
+    @activities = Activity.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @tasks }
+      format.xml  { render :xml => @activities }
     end
   end
 
-  # GET /tasks/1
-  # GET /tasks/1.xml
+  # GET /activities/1
+  # GET /activities/1.xml
   def show
-    @task = Task.find(params[:id])
+    @activity = Activity.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @task }
+      format.xml  { render :xml => @activity }
     end
   end
 
-  # GET /tasks/1/expanded
-  # GET /tasks/1/expanded.xml
+  # GET /activities/1/expanded
+  # GET /activities/1/expanded.xml
   def expanded
-    @task = Task.find(params[:id])
-    @parents = [@task.goal]
+    @activity = Activity.find(params[:id])
+    @parents = [@activity.goal]
 
     respond_to do |format|
       format.html # expanded.html.erb
-      format.xml  { render :xml => @task }
+      format.xml  { render :xml => @activity }
     end
   end
 
-  # GET /tasks/new
-  # GET /tasks/new.xml
+  # GET /activities/new
+  # GET /activities/new.xml
   def new
-    @task = Task.new
+    @activity = Activity.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @task }
+      format.xml  { render :xml => @activity }
     end
   end
 
-  # GET /tasks/1/edit
+  # GET /activities/1/edit
   def edit
-    @task = Task.find(params[:id])
+    @activity = Activity.find(params[:id])
   end
 
-  # POST /tasks
-  # POST /tasks.xml
+  # POST /activities
+  # POST /activities.xml
   def create
-    @task = Task.new(params[:task])
+    @activity = Activity.new(params[:activity])
 
     respond_to do |format|
-      if @task.save
-        flash[:notice] = 'Task was successfully created.'
-        format.html { redirect_to(@task) }
-        format.xml  { render :xml => @task, :status => :created, :location => @task }
+      if @activity.save
+        flash[:notice] = 'Activity was successfully created.'
+        format.html { redirect_to(@activity) }
+        format.xml  { render :xml => @activity, :status => :created, :location => @activity }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @activity.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # PUT /tasks/1
-  # PUT /tasks/1.xml
+  # PUT /activities/1
+  # PUT /activities/1.xml
   def update
-    @task = Task.find(params[:id])
+    @activity = Activity.find(params[:id])
 
     respond_to do |format|
-      if @task.update_attributes(params[:task])
-        flash[:notice] = 'Task was successfully updated.'
-        format.html { redirect_to(@task) }
+      if @activity.update_attributes(params[:activity])
+        flash[:notice] = 'Activity was successfully updated.'
+        format.html { redirect_to(@activity) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @task.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @activity.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /tasks/1
-  # DELETE /tasks/1.xml
+  # DELETE /activities/1
+  # DELETE /activities/1.xml
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
+    @activity = Activity.find(params[:id])
+    @activity.destroy
 
     respond_to do |format|
-      format.html { redirect_to(tasks_url) }
+      format.html { redirect_to(activities_url) }
       format.xml  { head :ok }
     end
   end

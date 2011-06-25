@@ -1,35 +1,35 @@
-class Agilezen::TasksController < ApplicationController
-  # GET /agilezen_tasks
-  # GET /agilezen_tasks.xml
+class Agilezen::ActivitiesController < ApplicationController
+  # GET /agilezen_activities
+  # GET /agilezen_activities.xml
   def index
-    @agilezen_tasks = Agilezen::Task.all
+    @agilezen_activities = Agilezen::Activity.all
 
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @agilezen_tasks }
+      format.xml  { render :xml => @agilezen_activities }
     end
   end
 
-  # GET /agilezen_tasks/1
-  # GET /agilezen_tasks/1.xml
+  # GET /agilezen_activities/1
+  # GET /agilezen_activities/1.xml
   def show
-    @agilezen_task = Agilezen::Task.find(params[:id])
+    @agilezen_activity = Agilezen::Activity.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @agilezen_task }
+      format.xml  { render :xml => @agilezen_activity }
     end
   end
 
 
-  # DELETE /agilezen_tasks/1
-  # DELETE /agilezen_tasks/1.xml
+  # DELETE /agilezen_activities/1
+  # DELETE /agilezen_activities/1.xml
   def destroy
-    @agilezen_task = Agilezen::Task.find(params[:id])
-    @agilezen_task.destroy
+    @agilezen_activity = Agilezen::Activity.find(params[:id])
+    @agilezen_activity.destroy
 
     respond_to do |format|
-      format.html { redirect_to(agilezen_tasks_url) }
+      format.html { redirect_to(agilezen_activities_url) }
       format.xml  { head :ok }
     end
   end

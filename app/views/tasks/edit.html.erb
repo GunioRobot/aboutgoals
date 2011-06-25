@@ -1,6 +1,6 @@
-<h1>Editing task</h1>
+<h1>Editing activity</h1>
 
-<% form_for(@task) do |f| %>
+<% form_for(@activity) do |f| %>
   <%= f.error_messages %>
 
   <%= render :partial => 'form', :locals => {:f => f} -%>
@@ -10,4 +10,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Show', @task %>
+<%= link_to 'Show', @activity %>

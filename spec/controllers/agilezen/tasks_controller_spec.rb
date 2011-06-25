@@ -1,38 +1,38 @@
 require 'spec_helper'
 
-describe Agilezen::TasksController do
+describe Agilezen::ActivitiesController do
 
-  def mock_task(stubs={})
-    @mock_task ||= mock_model(Agilezen::Task, stubs)
+  def mock_activity(stubs={})
+    @mock_activity ||= mock_model(Agilezen::Activity, stubs)
   end
 
   describe "GET index" do
-    it "assigns all agilezen_tasks as @agilezen_tasks" do
-      Agilezen::Task.stub(:find).with(:all).and_return([mock_task])
+    it "assigns all agilezen_activities as @agilezen_activities" do
+      Agilezen::Activity.stub(:find).with(:all).and_return([mock_activity])
       get :index
-      assigns[:agilezen_tasks].should == [mock_task]
+      assigns[:agilezen_activities].should == [mock_activity]
     end
   end
 
   describe "GET show" do
-    it "assigns the requested task as @agilezen_task" do
-      Agilezen::Task.stub(:find).with("37").and_return(mock_task)
+    it "assigns the requested activity as @agilezen_activity" do
+      Agilezen::Activity.stub(:find).with("37").and_return(mock_activity)
       get :show, :id => "37"
-      assigns[:agilezen_task].should equal(mock_task)
+      assigns[:agilezen_activity].should equal(mock_activity)
     end
   end
 
   describe "DELETE destroy" do
-    it "destroys the requested task" do
-      Agilezen::Task.should_receive(:find).with("37").and_return(mock_task)
-      mock_task.should_receive(:destroy)
+    it "destroys the requested activity" do
+      Agilezen::Activity.should_receive(:find).with("37").and_return(mock_activity)
+      mock_activity.should_receive(:destroy)
       delete :destroy, :id => "37"
     end
 
-    it "redirects to the agilezen_tasks list" do
-      Agilezen::Task.stub(:find).and_return(mock_task(:destroy => true))
+    it "redirects to the agilezen_activities list" do
+      Agilezen::Activity.stub(:find).and_return(mock_activity(:destroy => true))
       delete :destroy, :id => "1"
-      response.should redirect_to(agilezen_tasks_url)
+      response.should redirect_to(agilezen_activities_url)
     end
   end
 

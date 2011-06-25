@@ -1,2 +1,2 @@
-module TasksHelper
+module ActivitiesHelper
 end

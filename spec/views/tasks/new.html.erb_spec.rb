@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe "/tasks/new.html.erb" do
-  include TasksHelper
+describe "/activities/new.html.erb" do
+  include ActivitiesHelper
 
   before(:each) do
-    assigns[:task] = stub_model(Task,
+    assigns[:activity] = stub_model(Activity,
       :new_record? => true,
       :name => "value for name",
       :detail => "value for detail",
@@ -12,13 +12,13 @@ describe "/tasks/new.html.erb" do
     )
   end
 
-  it "renders new task form" do
+  it "renders new activity form" do
     render
 
-    response.should have_tag("form[action=?][method=post]", tasks_path) do
-      with_tag("input#task_name[name=?]", "task[name]")
-      with_tag("textarea#task_detail[name=?]", "task[detail]")
-      with_tag("input#task_complete[name=?]", "task[complete]")
+    response.should have_tag("form[action=?][method=post]", activities_path) do
+      with_tag("input#activity_name[name=?]", "activity[name]")
+      with_tag("textarea#activity_detail[name=?]", "activity[detail]")
+      with_tag("input#activity_complete[name=?]", "activity[complete]")
     end
   end
 end

@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe "Agilezen::Tasks" do
+describe "Agilezen::Activities" do
 end

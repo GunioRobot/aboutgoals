@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-describe "/agilezen/tasks/show.html.erb" do
-  include Agilezen::TasksHelper
+describe "/agilezen/activities/show.html.erb" do
+  include Agilezen::ActivitiesHelper
   before(:each) do
-    assigns[:agilezen_task] = @agilezen_task = stub_model(Agilezen::Task,
+    assigns[:agilezen_activity] = @agilezen_activity = stub_model(Agilezen::Activity,
       :external_id => "value for external_id"
     )
   end

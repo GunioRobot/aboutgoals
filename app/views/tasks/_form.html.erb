@@ -13,5 +13,5 @@
 
   <p>
     <%= f.label :goal %><br />
-	<%= select("task", "goal_id", Goal.find(:all).collect {|g| [ g.name, g.id ] },  { :include_blank => true }) %>
+	<%= select("activity", "goal_id", Goal.find(:all).collect {|g| [ g.name, g.id ] },  { :include_blank => true }) %>
   </p>

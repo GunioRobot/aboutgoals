@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe "/tasks/edit.html.erb" do
-  include TasksHelper
+describe "/activities/edit.html.erb" do
+  include ActivitiesHelper
 
   before(:each) do
-    assigns[:task] = @task = stub_model(Task,
+    assigns[:activity] = @activity = stub_model(Activity,
       :new_record? => false,
       :name => "value for name",
       :detail => "value for detail",
@@ -12,19 +12,19 @@ describe "/tasks/edit.html.erb" do
     )
   end
 
-  it "renders the edit task form" do
+  it "renders the edit activity form" do
     render
 
-    response.should have_tag("form[action=#{task_path(@task)}][method=post]") do
-      with_tag('input#task_name[name=?]', "task[name]")
-      with_tag('textarea#task_detail[name=?]', "task[detail]")
-      with_tag('input#task_complete[name=?]', "task[complete]")
+    response.should have_tag("form[action=#{activity_path(@activity)}][method=post]") do
+      with_tag('input#activity_name[name=?]', "activity[name]")
+      with_tag('textarea#activity_detail[name=?]', "activity[detail]")
+      with_tag('input#activity_complete[name=?]', "activity[complete]")
     end
   end
   
   it "should allow goal to be selected" do
     render 
-    response.should have_tag('select[name=?]','task[goal_id]')
+    response.should have_tag('select[name=?]','activity[goal_id]')
   end
   
 end

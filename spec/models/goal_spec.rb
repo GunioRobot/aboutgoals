@@ -36,7 +36,7 @@ describe Goal do
     end
   end
   
-  context "with no tasks" do
+  context "with no activities" do
     it_should_behave_like 'goal :not_started'
 
     context "and with goal set as complete" do
@@ -45,11 +45,11 @@ describe Goal do
     end
   end
   
-  context "with one incomplete task" do
+  context "with one incomplete activity" do
     before(:each) do
-      Task.new.should respond_to(:complete?) # sanity check 
-      @task1 = stub_model(Task, :complete? => false)
-      @it.stub!(:tasks).and_return([@task1])
+      Activity.new.should respond_to(:complete?) # sanity check 
+      @activity1 = stub_model(Activity, :complete? => false)
+      @it.stub!(:activities).and_return([@activity1])
     end
 
     it_should_behave_like 'goal :in_progress'
@@ -59,10 +59,10 @@ describe Goal do
       it_should_behave_like 'goal :fully_complete'
     end
 
-    context "and one complete task" do
+    context "and one complete activity" do
       before(:each) do
-        @task2 = stub_model(Task, :complete? => true)
-        @it.stub!(:tasks).and_return([@task1,@task2])
+        @activity2 = stub_model(Activity, :complete? => true)
+        @it.stub!(:activities).and_return([@activity1,@activity2])
       end
 
       it_should_behave_like 'goal :in_progress'
@@ -74,10 +74,10 @@ describe Goal do
     end
   end
 
-  context "with one complete task" do
+  context "with one complete activity" do
     before(:each) do
-      @task1 = stub_model(Task, :complete? => true)
-      @it.stub!(:tasks).and_return([@task1])
+      @activity1 = stub_model(Activity, :complete? => true)
+      @it.stub!(:activities).and_return([@activity1])
     end
 
     it_should_behave_like 'goal :for_review'

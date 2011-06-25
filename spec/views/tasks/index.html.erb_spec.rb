@@ -1,16 +1,16 @@
 require 'spec_helper'
 
-describe "/tasks/index.html.erb" do
-  include TasksHelper
+describe "/activities/index.html.erb" do
+  include ActivitiesHelper
 
   before(:each) do
-    assigns[:tasks] = [
-      stub_model(Task,
+    assigns[:activities] = [
+      stub_model(Activity,
         :name => "value for name",
         :detail => "value for detail",
         :complete => false
       ),
-      stub_model(Task,
+      stub_model(Activity,
         :name => "value for another name",
         :detail => "value for different detail",
         :complete => true
@@ -18,7 +18,7 @@ describe "/tasks/index.html.erb" do
     ]
   end
 
-  it "renders a list of tasks" do
+  it "renders a list of activities" do
     render
     response.should have_text(/value\ for\ name/)
     response.should have_text(/value\ for\ another\ name/)
