@@ -1,5 +1,12 @@
-<h1>Summarising goals</h1>
+<h1>Summary</h1>
 
 <%= render :partial => 'goals/small_card', :collection => @goals, :as => :goal %>
 
-<%= link_to 'New goal', new_goal_path %>
+<% if @goals.blank? -%>
+  <p>This is all about manging your
+  <%= link_to 'goals', goals_path %>
+  and
+  <%= link_to 'activities', activities_path %>
+  </p>
+  <%= render :partial => 'none' -%>
+<% end -%>

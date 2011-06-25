@@ -1,1 +1,5 @@
-<%= render :partial => 'activities/small_card', :collection => @activities, :as => :activity %>
+<%= render :partial => 'small_card', :collection => @activities, :as => :activity %>
+
+<% if @activities.blank? -%>
+  <%= render :partial => 'none' -%>
+<% end -%>

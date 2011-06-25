@@ -1,1 +1,5 @@
-<%= render :partial => 'goals/small_card', :collection => @goals, :as => :goal %>
+<%= render :partial => 'small_card', :collection => @goals, :as => :goal %>
+
+<% if @goals.blank? -%>
+  <%= render :partial => 'none' -%>
+<% end -%>
