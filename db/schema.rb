@@ -9,7 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110523001632) do
+ActiveRecord::Schema.define(:version => 20110625171852) do
+
+  create_table "activities", :force => true do |t|
+    t.string   "name",       :limit => 100,                     :null => false
+    t.string   "string",     :limit => 1000, :default => ""
+    t.string   "detail",     :limit => 1000, :default => ""
+    t.boolean  "complete",                   :default => false, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "goal_id"
+  end
+
+  create_table "agilezen_activities", :force => true do |t|
+    t.string   "external_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "source_id"
+  end
 
   create_table "agilezen_sources", :force => true do |t|
     t.string   "api_key"
@@ -19,29 +36,12 @@ ActiveRecord::Schema.define(:version => 20110523001632) do
     t.datetime "updated_at"
   end
 
-  create_table "agilezen_tasks", :force => true do |t|
-    t.string   "external_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "source_id"
-  end
-
   create_table "goals", :force => true do |t|
     t.string   "name",       :limit => 100,                     :null => false
     t.string   "detail",     :limit => 1000, :default => ""
     t.boolean  "complete",                   :default => false, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "tasks", :force => true do |t|
-    t.string   "name",       :limit => 100,                     :null => false
-    t.string   "string",     :limit => 1000, :default => ""
-    t.string   "detail",     :limit => 1000, :default => ""
-    t.boolean  "complete",                   :default => false, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "goal_id"
   end
 
 end
