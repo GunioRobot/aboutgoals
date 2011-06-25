@@ -11,7 +11,7 @@ describe "/tasks/_small_card.html.erb" do
     template.stub!(:task).and_return(@task)
   end
 
-  it "renders attributes in <p>" do
+  it "renders attributes" do
     render
     response.should have_text(/value\ for\ name/)
     response.should have_text(/In\ Progress/)

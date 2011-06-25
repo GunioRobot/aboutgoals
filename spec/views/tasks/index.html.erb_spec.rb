@@ -11,17 +11,16 @@ describe "/tasks/index.html.erb" do
         :complete => false
       ),
       stub_model(Task,
-        :name => "value for name",
-        :detail => "value for detail",
-        :complete => false
+        :name => "value for another name",
+        :detail => "value for different detail",
+        :complete => true
       )
     ]
   end
 
   it "renders a list of tasks" do
     render
-    response.should have_tag("tr>td", "value for name".to_s, 2)
-    response.should have_tag("tr>td", "value for detail".to_s, 2)
-    response.should have_tag("tr>td", false.to_s, 2)
+    response.should have_text(/value\ for\ name/)
+    response.should have_text(/value\ for\ another\ name/)
   end
 end
