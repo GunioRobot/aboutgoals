@@ -80,14 +80,14 @@ body {
   background-color: #B8F5C8;
 }
 
-.card.task {
+.card.activity {
   background-color: #FFD7B3;
   border-color: #FFAC62;
 }
-.card.task .card-part-body ,
-.card.task .card-toolbar {
+.card.activity .card-part-body ,
+.card.activity .card-toolbar {
   background-color: #FFE5C0;
 }
-.section-header.tasks {
+.section-header.activities {
   background-color: #FFE5C0;
 }
