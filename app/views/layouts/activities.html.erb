@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Goals: <%= controller.action_name %></title>
+  <title>Activities: <%= controller.action_name %></title>
   <%= stylesheet_link_tag 'scaffold' %>
   <%= stylesheet_link_tag 'app' %>
 </head>
@@ -12,12 +12,12 @@
 
 <%= render :partial => 'layouts/app_header' %>
 
-<div class="section-header goals">
-  <h2>Goals</h2>
+<div class="section-header activities">
+  <h2>Activities</h2>
   <div class="menu">
 <%= link_to 'List goals', goals_path %> !
 <%= link_to 'List activities', activities_path %> !
-<%= link_to 'New goal', new_goal_path %>
+<%= link_to 'New activity', new_activity_path %>
   </div>
 </div>
 
@@ -25,7 +25,6 @@
 <p style="color: green"><%= flash[:notice] %></p>
 
 <%= yield %>
-
 </div>
 
 </body>

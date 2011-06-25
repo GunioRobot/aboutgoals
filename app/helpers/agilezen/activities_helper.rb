@@ -1,0 +1,2 @@
+module Agilezen::ActivitiesHelper
+end

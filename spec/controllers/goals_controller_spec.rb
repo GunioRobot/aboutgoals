@@ -32,7 +32,7 @@ describe GoalsController do
 
   describe "GET expanded" do
     before(:each) do
-      Goal.stub(:find).with("37").and_return(mock_goal(:tasks => 'some tasks'))
+      Goal.stub(:find).with("37").and_return(mock_goal(:activities => 'some activities'))
     end
      
     it "assigns the requested goal as @goal" do
@@ -40,9 +40,9 @@ describe GoalsController do
       assigns[:goal].should equal(mock_goal)
     end
 
-    it "assigns the tasks as @children" do
+    it "assigns the activities as @children" do
       get :expanded, :id => "37"
-      assigns[:children].should == 'some tasks'
+      assigns[:children].should == 'some activities'
     end
   end
 

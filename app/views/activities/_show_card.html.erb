@@ -1,0 +1,18 @@
+<div class="card activity">
+  <div class="card-part-header">
+    <p>Activity: <%= @activity.name %></p>
+  </div>
+  <div class="card-part-body">
+    <p><%= @activity.detail %></p>
+  </div>
+  <div class="card-part-footer">
+    <p><%= status_text(@activity) %></p>
+  </div>
+  <div class="card-toolbar">
+    <p>Tools:
+    <%= link_to 'Edit', edit_activity_path(@activity) %>
+    <%= link_to 'Expand', expanded_activity_path(@activity) %>
+    <%= link_to 'Destroy', @activity, :confirm => 'Are you sure?', :method => :delete %>
+    </p>
+  </div>
+</div>

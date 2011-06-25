@@ -1,0 +1,17 @@
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :detail %><br />
+    <%= f.text_area :detail %>
+  </p>
+  <p>
+    <%= f.label :complete %><br />
+    <%= f.check_box :complete %>
+  </p>
+
+  <p>
+    <%= f.label :goal %><br />
+	<%= select("activity", "goal_id", Goal.find(:all).collect {|g| [ g.name, g.id ] },  { :include_blank => true }) %>
+  </p>
