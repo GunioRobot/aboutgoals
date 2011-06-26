@@ -25,6 +25,7 @@ class GoalsController < ApplicationController
   # GET /goals/1.xml
   def show
     @goal = Goal.find(params[:id])
+    @activities = @goal.activities if @goal
 
     respond_to do |format|
       format.html # show.html.erb

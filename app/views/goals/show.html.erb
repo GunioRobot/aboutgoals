@@ -1,1 +1,16 @@
 <%= render :partial => 'show_card' %>
+
+<div class="card container">
+  <div class="card-part-header">
+    <p>Contributing to: <%= @goal.name %></p>
+  </div>
+  <div class="card-part-body">
+  <%= render :partial => 'activities/small_card', :collection => @activities, :as => :activity %>
+    <% if @activities.blank? -%>
+      <p>You have no activities contributing to this goal.
+      <%= link_to 'Create a new activity', new_activity_path %>
+      </p>
+    <% end -%>
+  </div>
+</div>
+

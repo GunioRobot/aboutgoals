@@ -10,7 +10,7 @@ describe "/activities/show.html.erb" do
     )
   end
 
-  it "renders attributes in <p>" do
+  it "renders attributes" do
     render
     response.should have_text(/value\ for\ name/)
     response.should have_text(/value\ for\ detail/)

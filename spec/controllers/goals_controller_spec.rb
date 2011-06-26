@@ -3,7 +3,8 @@ require 'spec_helper'
 describe GoalsController do
 
   def mock_goal(stubs={})
-    @mock_goal ||= mock_model(Goal, stubs)
+    @mock_model = mock_model(Goal, stubs) unless stubs.blank?
+    @mock_model ||= mock_model(Goal, stubs)
   end
 
   describe "GET index" do
@@ -23,10 +24,26 @@ describe GoalsController do
   end
 
   describe "GET show" do
+    before(:each) do
+      @goal_with_no_activities = mock_goal(:activities =>  [] )
+    end
+
     it "assigns the requested goal as @goal" do
-      Goal.stub(:find).with("37").and_return(mock_goal)
+      Goal.stub(:find).with("37").and_return(@goal_with_no_activities)
       get :show, :id => "37"
       assigns[:goal].should equal(mock_goal)
+    end
+
+    describe "with activities" do
+      before(:each) do
+        @goal_with_activities = mock_goal(:activities =>  'the associated activities' )
+      end
+
+      it "finds the activities" do
+        Goal.stub(:find).with("37").and_return(@goal_with_activities)
+        get :show, :id => "37"
+        assigns[:activities].should == 'the associated activities'
+      end
     end
   end
 
