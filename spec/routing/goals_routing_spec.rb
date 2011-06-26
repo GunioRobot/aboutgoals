@@ -37,5 +37,14 @@ describe GoalsController do
     it "recognizes and generates #destroy" do
       { :delete => "/goals/1" }.should route_to(:controller => "goals", :action => "destroy", :id => "1") 
     end
+    
+    it "recognizes and generates #new_activity" do
+      { :get => "/goals/1/new_activity" }.should route_to(:controller => "goals", :action => "new_activity", :id => "1")
+    end
+
+    it "recognizes and generates #new_activity" do
+      { :post => "/goals/1/create_activity" }.should route_to(:controller => "goals", :action => "create_activity", :id => "1")
+    end
+
   end
 end

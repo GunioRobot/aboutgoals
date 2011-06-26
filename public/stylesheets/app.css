@@ -56,8 +56,7 @@ body {
   margin-top: 30px;
   margin-bottom: 30px;
 }
-.card.container .card-part-body ,
-.card.container .card-toolbar {
+.card.container .card-part-body {
   background-color: #FFFFFF;
 }
 .card.container .card-part-body {

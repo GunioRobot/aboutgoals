@@ -45,7 +45,7 @@ describe "/goals/show.html.erb" do
 
     it "links to new" do
       render
-      response.should have_tag('a[href=?]',new_activity_path)
+      response.should have_tag('a[href=?]',new_activity_goal_path(@goal))
     end
   end
 end

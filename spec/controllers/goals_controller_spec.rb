@@ -7,6 +7,11 @@ describe GoalsController do
     @mock_model ||= mock_model(Goal, stubs)
   end
 
+  def mock_activity(stubs={})
+    @mock_activity = mock_model(Activity, stubs) unless stubs.blank?
+    @mock_activity ||= mock_model(Activity, stubs)
+  end
+
   describe "GET index" do
     it "assigns all goals as @goals" do
       Goal.stub(:find).with(:all).and_return([mock_goal])
@@ -25,25 +30,17 @@ describe GoalsController do
 
   describe "GET show" do
     before(:each) do
-      @goal_with_no_activities = mock_goal(:activities =>  [] )
+      Goal.stub(:find).with("37").and_return(mock_goal(:activities =>  'the associated activities' ))
     end
-
+  
     it "assigns the requested goal as @goal" do
-      Goal.stub(:find).with("37").and_return(@goal_with_no_activities)
       get :show, :id => "37"
       assigns[:goal].should equal(mock_goal)
     end
 
-    describe "with activities" do
-      before(:each) do
-        @goal_with_activities = mock_goal(:activities =>  'the associated activities' )
-      end
-
-      it "finds the activities" do
-        Goal.stub(:find).with("37").and_return(@goal_with_activities)
-        get :show, :id => "37"
-        assigns[:activities].should == 'the associated activities'
-      end
+    it "finds the activities" do
+      get :show, :id => "37"
+      assigns[:activities].should == 'the associated activities'
     end
   end
 
@@ -167,6 +164,72 @@ describe GoalsController do
       delete :destroy, :id => "1"
       response.should redirect_to(goals_url)
     end
+  end
+
+  describe "GET new_activity" do
+    before(:each) do
+      assoc_proxy = stub('assoc_proxy')
+      assoc_proxy.stub(:new).and_return(mock_activity)
+      Goal.stub(:find).with("37").and_return(mock_goal(:activities =>  assoc_proxy ))
+    end
+  
+    it "assigns the requested goal as @goal" do
+      get :new_activity, :id => "37"
+      assigns[:goal].should equal(mock_goal)
+    end
+
+    it "assigns the new activity as @activity" do
+      get :new_activity, :id => "37"
+      assigns[:activity].should equal(mock_activity)
+    end
+
+    it "renders the 'new_activity' template" do
+      get :new_activity, :id => "37"
+      response.should render_template('new_activity')
+    end
+
+  end
+
+  describe "POST create_activity" do
+    before(:each) do
+      @assoc_proxy = stub('assoc_proxy')
+      Goal.stub(:find).with("37").and_return(mock_goal(:activities =>  @assoc_proxy ))
+    end
+  
+    it "assigns the requested goal as @goal" do
+      @assoc_proxy.stub(:new).and_return(mock_activity(:save => true))
+      post :create_activity, :id => "37"
+      assigns[:goal].should equal(mock_goal)
+    end
+
+    describe "with valid params" do
+      it "assigns a newly created activity as @activity" do
+        @assoc_proxy.stub(:new).with({'these' => 'params'}).and_return(mock_activity(:save => true))
+        post :create_activity, :id => "37", :activity => {:these => 'params'}
+        assigns[:activity].should equal(mock_activity)
+      end
+
+      it "redirects to the goal" do
+        @assoc_proxy.stub(:new).and_return(mock_activity(:save => true))
+        post :create_activity, :id => "37", :activity => {}
+        response.should redirect_to(goal_url(mock_goal))
+      end
+    end
+
+    describe "with invalid params" do
+      it "assigns a newly created but unsaved activity as @activity" do
+        @assoc_proxy.stub(:new).with({'these' => 'params'}).and_return(mock_activity(:save => false))
+        post :create_activity, :id => "37", :activity => {:these => 'params'}
+        assigns[:activity].should equal(mock_activity)
+      end
+
+      it "re-renders the 'new_activity' template" do
+        @assoc_proxy.stub(:new).and_return(mock_activity(:save => false))
+        post :create_activity, :id => "37", :activity => {}
+        response.should render_template('new_activity')
+      end
+    end
+
   end
 
 end

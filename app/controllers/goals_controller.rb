@@ -106,4 +106,36 @@ class GoalsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  # GET /goals/1/new_activity
+  # GET /goals/1/new_activity.xml
+  def new_activity
+    @goal = Goal.find(params[:id])
+
+    @activity = @goal.activities.new
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @goal }
+    end
+  end
+
+  # GET /goals/1/create_activity
+  # GET /goals/1/create_activity.xml
+  def create_activity
+    @goal = Goal.find(params[:id])
+
+    @activity = @goal.activities.new(params[:activity])
+    respond_to do |format|
+      if @activity.save
+        flash[:notice] = 'Activity was successfully created.'
+        format.html { redirect_to(@goal) }
+        format.xml  { render :xml => @activity, :status => :created, :location => @goal }
+      else
+        format.html { render :action => "new_activity" }
+        format.xml  { render :xml => @activity.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
 end
