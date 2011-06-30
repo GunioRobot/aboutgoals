@@ -1,12 +1,3 @@
 <%= render :partial => 'show_card' %>
 
-<div class="card container">
-  <div class="card-part-header">
-    <p>Contributing to: <%= @goal.name %></p>
-  </div>
-  <div class="card-part-body">
-<%= render :partial => 'activities/small_card', :collection => @children, :as => :activity %>
-  </div>
-</div>
-
-<%= link_to 'Back', @goal %>
+<%= render :partial => 'activity_container', :locals => { :activities => @children } %>
