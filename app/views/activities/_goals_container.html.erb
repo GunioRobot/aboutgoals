@@ -1,0 +1,21 @@
+<div class="card container">
+  <div class="card-part-header">
+    <p>Motivation for: <%= @activity.name %></p>
+  </div>
+  <div class="card-part-body">
+    <%= render :partial => 'goals/small_card', :collection => goals, :as => :goal %>
+    <% if goals.blank? -%>
+      <p>You have no goal as a motivation for this activity
+     <%= link_to 'Create a new goal', new_goal_activity_path(@activity) %>
+      </p>
+    <% end -%>
+  </div>
+  <div class="card-toolbar">
+    <% if goals.blank? -%>
+    <p>Tools:
+    <%= link_to 'New goal', new_goal_activity_path(@activity) %>
+    </p>
+    <% end -%>
+  </div>
+</div>
+

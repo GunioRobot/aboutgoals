@@ -14,6 +14,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1.xml
   def show
     @activity = Activity.find(params[:id])
+    @goals = [@activity.goal].compact  # in case of nil
 
     respond_to do |format|
       format.html # show.html.erb
@@ -94,4 +95,36 @@ class ActivitiesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  #
+  # GET /activities/1/new_goal
+  # GET /activities/1/new_goal.xml
+  def new_goal
+    @activity = Activity.find(params[:id])
+
+    @goal = @activity.build_goal
+
+    respond_to do |format|
+      format.html # new_goal.html.erb
+      format.xml  { render :xml => @activity }
+    end
+  end
+  #
+  # POST /activities/1/create_goal
+  # POST /activities/1/create_goal.xml
+  def create_goal
+    @activity = Activity.find(params[:id])
+
+    @goal = @activity.build_goal(params[:goal])
+    respond_to do |format|
+      if @activity.save
+        flash[:notice] = 'Goal was successfully created.'
+        format.html { redirect_to(@activity) }
+        format.xml  { render :xml => @goal, :status => :created, :location => @activity }
+      else
+        format.html { render :action => "new_goal" }
+        format.xml  { render :xml => @goal.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
 end

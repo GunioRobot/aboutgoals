@@ -2,7 +2,13 @@ require 'spec_helper'
 
 describe ActivitiesController do
 
+  def mock_goal(stubs={})
+    @mock_model = mock_model(Goal, stubs) unless stubs.blank?
+    @mock_model ||= mock_model(Goal, stubs)
+  end
+
   def mock_activity(stubs={})
+    @mock_activity = mock_model(Activity, stubs) unless stubs.blank?
     @mock_activity ||= mock_model(Activity, stubs)
   end
 
@@ -15,10 +21,17 @@ describe ActivitiesController do
   end
 
   describe "GET show" do
+    before(:each) do
+      Activity.stub(:find).with("37").and_return(mock_activity(:goal => 'the associated goal'))
+    end
     it "assigns the requested activity as @activity" do
-      Activity.stub(:find).with("37").and_return(mock_activity)
       get :show, :id => "37"
       assigns[:activity].should equal(mock_activity)
+    end
+
+    it 'finds the goals' do
+      get :show, :id => "37"
+      assigns[:goals].should  == ['the associated goal']
     end
   end
 
@@ -143,5 +156,73 @@ describe ActivitiesController do
       response.should redirect_to(activities_url)
     end
   end
+
+  describe "GET new_goal" do
+    before(:each) do
+      Activity.stub(:find).with("37").and_return(mock_activity(:build_goal =>  mock_goal ))
+    end
+  
+    it "assigns the requested activity as @activity" do
+      get :new_goal, :id => "37"
+      assigns[:activity].should equal(mock_activity)
+    end
+
+    it "assigns the new goal as @goal" do
+      get :new_goal, :id => "37"
+      assigns[:goal].should equal(mock_goal)
+    end
+
+    it "renders the 'new_goal' template" do
+      get :new_goal, :id => "37"
+      response.should render_template('new_goal')
+    end
+  end
+
+  describe "POST create_goal" do
+    before(:each) do
+      Activity.stub(:find).with("37").and_return(mock_activity(:build_goal => mock_goal ))
+    end
+  
+    it "assigns the requested goal as @goal" do
+      mock_activity.stub(:build_goal).and_return(mock_goal(:save => true))
+      mock_activity.stub(:save => true)
+      post :create_goal, :id => "37"
+      assigns[:goal].should equal(mock_goal)
+    end
+
+    describe "with valid params" do
+      it "assigns a newly created goal as @goal" do
+        mock_activity.stub(:build_goal).with({'these' => 'params'}).and_return(mock_goal(:save => true))
+        mock_activity.stub(:save => true)
+        post :create_goal, :id => "37", :goal => {:these => 'params'}
+        assigns[:goal].should equal(mock_goal)
+      end
+
+      it "redirects to the activity" do
+        mock_activity.stub(:build_goal).and_return(mock_goal(:save => true))
+        mock_activity.stub(:save => true)
+        post :create_goal, :id => "37", :goal => {}
+        response.should redirect_to(activity_url(mock_activity))
+      end
+    end
+
+    describe "with invalid params" do
+      it "assigns a newly created but unsaved goal as @goal" do
+        mock_activity.stub(:build_goal).with({'these' => 'params'}).and_return(mock_goal(:save => false))
+        mock_activity.stub(:save => false)
+        post :create_goal, :id => "37", :goal => {:these => 'params'}
+        assigns[:goal].should equal(mock_goal)
+      end
+
+      it "re-renders the 'new_goal' template" do
+        mock_activity.stub(:build_goal).and_return(mock_goal(:save => false))
+        mock_activity.stub(:save => false)
+        post :create_goal, :id => "37", :goal => {}
+        response.should render_template('new_goal')
+      end
+    end
+
+  end
+
 
 end

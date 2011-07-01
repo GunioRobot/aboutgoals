@@ -6,7 +6,8 @@ ActionController::Routing::Routes.draw do |map|
     agilezen.resources :activities, :controller => 'agilezen/activities'
   end
 
-  map.resources :activities, :member => { :expanded => :get }
+  map.resources :activities, 
+    :member => { :expanded => :get , :new_goal => :get, :create_goal => :post }
 
   
   map.resources :goals, 
