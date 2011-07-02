@@ -1,11 +1,18 @@
 <%= render :partial => 'goals/about' -%>
 
-<h1>New goal</h1>
-
 <% form_for(@goal, :url => create_goal_activity_path(@activity) ) do |f| %>
+
+<div class="card goal">
+  <div class="card-part-header">
+    <p>New Goal for activity: <%= @activity.name -%></p>
+  </div>
+  <div class="card-part-body">
   <%= f.error_messages %>
 
   <%= render :partial => 'goals/form', :locals => {:f => f} -%>
+
+  </div>
+</div>
 
   <p>
     <%= f.submit 'Create' %>

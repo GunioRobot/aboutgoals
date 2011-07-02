@@ -1,11 +1,19 @@
 <%= render :partial => 'about' -%>
 
-<h1>New activity</h1>
-
 <% form_for(@activity) do |f| %>
+
+<div class="card activity">
+  <div class="card-part-header">
+    <p>New Activity</p>
+  </div>
+  <div class="card-part-body">
+
   <%= f.error_messages %>
 
   <%= render :partial => 'form', :locals => {:f => f} -%>
+
+  </div>
+</div>
 
   <p>
     <%= f.submit 'Create' %>

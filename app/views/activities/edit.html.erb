@@ -1,9 +1,17 @@
-<h1>Editing activity</h1>
-
 <% form_for(@activity) do |f| %>
+
+<div class="card activity">
+  <div class="card-part-header">
+    <p>Editing Activity: <%= @activity.name -%></p>
+  </div>
+  <div class="card-part-body">
+
   <%= f.error_messages %>
 
   <%= render :partial => 'form', :locals => {:f => f} -%>
+
+  </div>
+</div>
 
   <p>
     <%= f.submit 'Update' %>

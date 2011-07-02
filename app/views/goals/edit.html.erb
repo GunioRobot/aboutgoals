@@ -1,14 +1,22 @@
-<h1>Editing goal</h1>
-
 <% form_for(@goal) do |f| %>
+
+<div class="card goal">
+  <div class="card-part-header">
+    <p>Editing Goal: <%= @goal.name -%></p>
+  </div>
+  <div class="card-part-body">
+
   <%= f.error_messages %>
 
   <%= render :partial => 'form', :locals => {:f => f} -%>
 
+  </div>
+</div>
+
   <p>
     <%= f.submit 'Update' %>
   </p>
+
 <% end %>
 
 <%= link_to 'Show', @goal %> |
-<%= link_to 'Back', goals_path %>
