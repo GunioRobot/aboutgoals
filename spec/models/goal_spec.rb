@@ -47,13 +47,15 @@ describe Goal do
   
   context "with one incomplete activity" do
     before(:each) do
-      Activity.new.should respond_to(:complete?) # sanity check 
-      @activity1 = stub_model(Activity, :complete? => false)
-      @it.stub!(:activities).and_return([@activity1])
+      @it.activities.create(:complete => false, :name => 'act_incomplete')
     end
 
     it_should_behave_like 'goal :in_progress'
-    
+
+    it "should have incomplete_activity.count = 1" do
+      @it.incomplete_activities.count.should == 1
+    end
+
     context "and with goal set as complete" do
       before(:each) { @it.complete = true }
       it_should_behave_like 'goal :fully_complete'
@@ -61,8 +63,12 @@ describe Goal do
 
     context "and one complete activity" do
       before(:each) do
-        @activity2 = stub_model(Activity, :complete? => true)
-        @it.stub!(:activities).and_return([@activity1,@activity2])
+        @it.activities.create(:complete => true, :name => 'act_complete')
+      end
+
+      it "incomplete_activities should return only the incomplete activity" do
+        @it.incomplete_activities.count.should == 1
+        @it.incomplete_activities.first.name.should == 'act_incomplete'
       end
 
       it_should_behave_like 'goal :in_progress'
@@ -76,11 +82,14 @@ describe Goal do
 
   context "with one complete activity" do
     before(:each) do
-      @activity1 = stub_model(Activity, :complete? => true)
-      @it.stub!(:activities).and_return([@activity1])
+      @it.activities.create(:complete => true, :name => 'act_complete')
     end
 
     it_should_behave_like 'goal :for_review'
+
+    it "should have incomplete_activity.count = 0" do
+      @it.incomplete_activities.count.should == 0
+    end
     
     context "and with goal set as complete" do
       before(:each) { @it.complete = true }

@@ -9,5 +9,9 @@ class Goal < ActiveRecord::Base
     end 
     return :not_started
   end
+
+  def incomplete_activities
+    activities.reject(&:complete)
+  end
   
 end
