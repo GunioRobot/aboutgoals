@@ -13,5 +13,16 @@ class Goal < ActiveRecord::Base
   def incomplete_activities
     activities.reject(&:complete)
   end
+
+  def self.find_all_with_no_activities
+    find(:all, :include => :activities).select{ |g| g.activities.none? }
+  end
   
+  def self.find_all_in_progress
+    find(:all, :include => :activities).select{ |g| g.activities.any? && g.incomplete_activities.any? }
+  end
+
+  def self.find_all_with_all_activities_complete  
+    find(:all, :include => :activities).select{ |g| g.activities.any? && g.incomplete_activities.none? }
+  end
 end
