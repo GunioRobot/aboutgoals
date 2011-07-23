@@ -17,16 +17,16 @@ describe Goal do
        @it.status.should == :not_started 
     end
     
-    it "is returned by class method find_all_with_no_activities" do
-      Goal.find_all_with_no_activities.should == [@it]
+    it "is returned by class method find_all_not_started" do
+      Goal.find_all_not_started.should == [@it]
     end
 
     it "is not returned by class method find_all_in_progress" do
       Goal.find_all_in_progress.should_not == [@it]
     end
 
-    it "is not returned by class method find_all_with_all_activities_complete" do
-      Goal.find_all_with_all_activities_complete.should_not == [@it]
+    it "is not returned by class method find_all_for_review" do
+      Goal.find_all_for_review.should_not == [@it]
     end
   end
 
@@ -35,16 +35,16 @@ describe Goal do
        @it.status.should == :in_progress 
     end
 
-    it "is not returned by class method find_all_with_no_activities" do
-      Goal.find_all_with_no_activities.should_not == [@it]
+    it "is not returned by class method find_all_not_started" do
+      Goal.find_all_not_started.should_not == [@it]
     end
 
     it "is returned by class method find_all_in_progress" do
       Goal.find_all_in_progress.should == [@it]
     end
 
-    it "is not returned by class method find_all_with_all_activities_complete" do
-      Goal.find_all_with_all_activities_complete.should_not == [@it]
+    it "is not returned by class method find_all_for_review" do
+      Goal.find_all_for_review.should_not == [@it]
     end
   end
 
@@ -53,16 +53,16 @@ describe Goal do
        @it.status.should == :for_review 
     end
 
-    it "is not returned by class method find_all_with_no_activities" do
-      Goal.find_all_with_no_activities.should_not == [@it]
+    it "is not returned by class method find_all_not_started" do
+      Goal.find_all_not_started.should_not == [@it]
     end
 
     it "is not returned by class method find_all_in_progress" do
       Goal.find_all_in_progress.should_not == [@it]
     end
 
-    it "is returned by class method find_all_with_all_activities_complete" do
-      Goal.find_all_with_all_activities_complete.should == [@it]
+    it "is returned by class method find_all_for_review" do
+      Goal.find_all_for_review.should == [@it]
     end
   end
 
