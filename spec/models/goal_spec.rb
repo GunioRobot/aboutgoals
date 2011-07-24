@@ -70,13 +70,25 @@ describe Goal do
     it "should have status :fully_complete" do
        @it.status.should == :fully_complete 
     end
+
+    it "is not returned by class method find_all_not_started" do
+      Goal.find_all_not_started.should_not == [@it]
+    end
+
+    it "is not returned by class method find_all_in_progress" do
+      Goal.find_all_in_progress.should_not == [@it]
+    end
+
+    it "is not returned by class method find_all_for_review" do
+      Goal.find_all_for_review.should_not == [@it]
+    end
   end
   
   context "with no activities" do
     it_should_behave_like 'goal :not_started'
 
     context "and with goal set as complete" do
-      before(:each) { @it.complete = true }
+      before(:each) { @it.update_attributes!(:complete => true) }
       it_should_behave_like 'goal :fully_complete'
     end
   end
@@ -93,7 +105,7 @@ describe Goal do
     end
 
     context "and with goal set as complete" do
-      before(:each) { @it.complete = true }
+      before(:each) { @it.update_attributes!(:complete => true) }
       it_should_behave_like 'goal :fully_complete'
     end
 
@@ -110,7 +122,7 @@ describe Goal do
       it_should_behave_like 'goal :in_progress'
 
       context "and with goal set as complete" do
-        before(:each) { @it.complete = true }
+        before(:each) { @it.update_attributes!(:complete => true) }
         it_should_behave_like 'goal :fully_complete'
       end
     end
@@ -128,7 +140,7 @@ describe Goal do
     end
     
     context "and with goal set as complete" do
-      before(:each) { @it.complete = true }
+      before(:each) { @it.update_attributes!(:complete => true) }
       it_should_behave_like 'goal :fully_complete'
     end
   end

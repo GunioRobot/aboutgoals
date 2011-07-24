@@ -20,14 +20,14 @@ class Goal < ActiveRecord::Base
   end
 
   def self.find_all_not_started
-    find(:all, :include => :activities).select{ |g| g.activities.none? }
+    find(:all, :conditions =>  { :complete => false }, :include => :activities).select{ |g| g.activities.none? }
   end
   
   def self.find_all_in_progress
-    find(:all, :include => :activities).select{ |g| g.activities.any? && g.incomplete_activities.any? }
+    find(:all, :conditions =>  { :complete => false }, :include => :activities).select{ |g| g.activities.any? && g.incomplete_activities.any? }
   end
 
   def self.find_all_for_review  
-    find(:all, :include => :activities).select{ |g| g.activities.any? && g.incomplete_activities.none? }
+    find(:all, :conditions =>  { :complete => false }, :include => :activities).select{ |g| g.activities.any? && g.incomplete_activities.none? }
   end
 end
