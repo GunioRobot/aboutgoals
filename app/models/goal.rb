@@ -30,4 +30,8 @@ class Goal < ActiveRecord::Base
   def self.find_all_for_review  
     find(:all, :conditions =>  { :complete => false }, :include => :activities).select{ |g| g.activities.any? && g.incomplete_activities.none? }
   end
+
+  def self.find_all_complete
+    find(:all, :conditions =>  { :complete => true } )
+  end
 end

@@ -28,6 +28,10 @@ describe Goal do
     it "is not returned by class method find_all_for_review" do
       Goal.find_all_for_review.should_not == [@it]
     end
+
+    it "is not returned by class method find_all_complete" do
+      Goal.find_all_complete.should_not == [@it]
+    end
   end
 
   shared_examples_for 'goal :in_progress' do
@@ -45,6 +49,10 @@ describe Goal do
 
     it "is not returned by class method find_all_for_review" do
       Goal.find_all_for_review.should_not == [@it]
+    end
+
+    it "is not returned by class method find_all_complete" do
+      Goal.find_all_complete.should_not == [@it]
     end
   end
 
@@ -64,6 +72,10 @@ describe Goal do
     it "is returned by class method find_all_for_review" do
       Goal.find_all_for_review.should == [@it]
     end
+
+    it "is not returned by class method find_all_complete" do
+      Goal.find_all_complete.should_not == [@it]
+    end
   end
 
   shared_examples_for 'goal :fully_complete' do
@@ -81,6 +93,10 @@ describe Goal do
 
     it "is not returned by class method find_all_for_review" do
       Goal.find_all_for_review.should_not == [@it]
+    end
+
+    it "is returned by class method find_all_complete" do
+      Goal.find_all_complete.should == [@it]
     end
   end
   
