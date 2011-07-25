@@ -1,28 +1,24 @@
 <h1>Summary</h1>
 
-<div class="summary_item">
-  Goals not started: <%= link_to Goal.find_all_not_started.count.to_s+' goals', goals_path %>
-</div>
-
-<%= render :partial => 'container', :locals => {
+<%= render( :partial => 'container', :locals => {
       :title => 'goals not started',
       :goals => @goals_not_started
-} -%>
+} ) unless @goals_not_started.empty? -%>
 
-<%= render :partial => 'container', :locals => {
+<%= render( :partial => 'container', :locals => {
       :title => 'goals in progress',
       :goals => @goals_in_progress
-} -%>
+} ) unless @goals_in_progress.empty? -%>
 
-<%= render :partial => 'container', :locals => {
+<%= render( :partial => 'container', :locals => {
       :title => 'goals for review',
       :goals => @goals_for_review
-} -%>
+} ) unless @goals_for_review.empty? -%>
 
-<%= render :partial => 'container', :locals => {
+<%= render( :partial => 'container', :locals => {
       :title => 'goals complete',
       :goals => @goals_complete
-} -%>
+} ) unless @goals_complete.empty? -%>
 
 <% if @goals.blank? -%>
   <p>aboutgoals lets you relate your
