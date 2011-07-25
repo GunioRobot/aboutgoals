@@ -1,12 +1,35 @@
 <h1>Summary</h1>
 
-<%= render :partial => 'goals/small_card', :collection => @goals, :as => :goal %>
+<div class="summary_item">
+  Goals not started: <%= link_to Goal.find_all_not_started.count.to_s+' goals', goals_path %>
+</div>
+
+<%= render :partial => 'container', :locals => {
+      :title => 'goals not started',
+      :goals => @goals_not_started
+} -%>
+
+<%= render :partial => 'container', :locals => {
+      :title => 'goals in progress',
+      :goals => @goals_in_progress
+} -%>
+
+<%= render :partial => 'container', :locals => {
+      :title => 'goals for review',
+      :goals => @goals_for_review
+} -%>
+
+<%= render :partial => 'container', :locals => {
+      :title => 'goals complete',
+      :goals => @goals_complete
+} -%>
 
 <% if @goals.blank? -%>
-  <p>This is all about manging your
-  <%= link_to 'goals', goals_path %>
-  and
+  <p>aboutgoals lets you relate your
   <%= link_to 'activities', activities_path %>
+  to the 
+  <%= link_to 'goals', goals_path %>
+  you'd like to achieve
   </p>
   <%= render :partial => 'none' -%>
 <% end -%>

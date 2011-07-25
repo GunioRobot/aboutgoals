@@ -21,10 +21,41 @@ describe GoalsController do
   end
 
   describe "GET summary" do
+    before(:each) do
+      Goal.stub(:find_all_not_started)
+      Goal.stub(:find_all_in_progress)
+      Goal.stub(:find_all_for_review)
+      Goal.stub(:find_all_complete)
+    end
+    
     it "assigns all goals as @goals" do
       Goal.stub(:find).with(:all).and_return([mock_goal])
       get :summary
       assigns[:goals].should == [mock_goal]
+    end
+
+    it "assigns not started goals as @goals_not_started" do
+      Goal.stub(:find_all_not_started).and_return('not_started_1')
+      get :summary
+      assigns[:goals_not_started].should == 'not_started_1'
+    end
+
+    it "assigns in progress goals as @goals_in_progress" do
+      Goal.stub(:find_all_in_progress).and_return('in_progress_2')
+      get :summary
+      assigns[:goals_in_progress].should == 'in_progress_2'
+    end
+
+    it "assigns for review goals as @goals_for_review" do
+      Goal.stub(:find_all_for_review).and_return('for_review_3')
+      get :summary
+      assigns[:goals_for_review].should == 'for_review_3'
+    end
+
+    it "assigns complete goals as @goals_complete" do
+      Goal.stub(:find_all_complete).and_return('complete_4')
+      get :summary
+      assigns[:goals_complete].should == 'complete_4'
     end
   end
 

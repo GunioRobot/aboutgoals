@@ -1,0 +1,9 @@
+<div class="card container">
+  <div class="card-part-header">
+    <p><%= title %></p>
+  </div>
+  <div class="card-part-body">
+    <%= render :partial => 'goals/small_card', :collection => goals, :as => :goal %>
+  </div>
+</div>
+

@@ -5,24 +5,26 @@ describe "/goals/summary.html.erb" do
 
   describe "with some goals" do
     before(:each) do
-      assigns[:goals] = [
-        stub_model(Goal, 
-          :name => "value for name",
-          :detail => "value for detail",
-          :complete => false
-                  ),
-        stub_model(Goal, 
-          :name => "value for another name",
-          :detail => "value for different detail",
-          :complete => true
-                  )
+      assigns[:goals_not_started] = [
+        stub_model(Goal, :name => "goal111")
+      ]
+      assigns[:goals_in_progress] = [
+        stub_model(Goal, :name => "goal222")
+      ]
+      assigns[:goals_for_review] = [
+        stub_model(Goal, :name => "goal333")
+      ]
+      assigns[:goals_complete] = [
+        stub_model(Goal, :name => "goal444")
       ]
     end
 
     it "renders a list of goals" do
       render
-      response.should have_text(/value\ for\ name/)
-      response.should have_text(/value\ for\ another\ name/)
+      response.should have_text(/goal111/)
+      response.should have_text(/goal222/)
+      response.should have_text(/goal333/)
+      response.should have_text(/goal444/)
     end
   end
 

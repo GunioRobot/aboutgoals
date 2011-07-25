@@ -14,6 +14,10 @@ class GoalsController < ApplicationController
   # GET /goals/summary.xml
   def summary
     @goals = Goal.all
+    @goals_not_started = Goal.find_all_not_started
+    @goals_in_progress = Goal.find_all_in_progress
+    @goals_for_review  = Goal.find_all_for_review
+    @goals_complete    = Goal.find_all_complete
 
     respond_to do |format|
       format.html # summary.html.erb
