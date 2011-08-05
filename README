@@ -1,0 +1,14 @@
+== AboutGoals
+
+AboutGoals is a proof-of-concept, or spike, project to explore the usefulness
+of organising activities (of a team, or your own) by the goals that motivate them.
+
+If it seems useful, I'll be extending by adding APIs for apps like RememberTheMilk or
+AgileZen, or Lighthouse, using them as a source of Activities.
+
+== Install
+
+The usual stuff for a rails app. You need your own config/database.yml though you 
+can use the default one. Then (assuming you have bundler) do bundle install and
+rake db:migrate. Start it up and it should be fairly easy to use.
+
