@@ -21,7 +21,7 @@ describe Activity do
         @it.status.should == :fully_complete
       end
     end
-  
+
    context "when activity is not complete" do
       before(:each) { @it.complete = false }
       it "should have status :in_progress" do
@@ -29,5 +29,5 @@ describe Activity do
       end
     end
   end
-  
+
 end

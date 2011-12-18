@@ -14,9 +14,9 @@ describe Goal do
 
   shared_examples_for 'goal :not_started' do
     it "should have status :not_started" do
-       @it.status.should == :not_started 
+       @it.status.should == :not_started
     end
-    
+
     it "is returned by class method find_all_not_started" do
       Goal.find_all_not_started.should == [@it]
     end
@@ -36,7 +36,7 @@ describe Goal do
 
   shared_examples_for 'goal :in_progress' do
     it "should have status :in_progress" do
-       @it.status.should == :in_progress 
+       @it.status.should == :in_progress
     end
 
     it "is not returned by class method find_all_not_started" do
@@ -58,7 +58,7 @@ describe Goal do
 
   shared_examples_for 'goal :for_review' do
     it "should have status :for_review" do
-       @it.status.should == :for_review 
+       @it.status.should == :for_review
     end
 
     it "is not returned by class method find_all_not_started" do
@@ -80,7 +80,7 @@ describe Goal do
 
   shared_examples_for 'goal :fully_complete' do
     it "should have status :fully_complete" do
-       @it.status.should == :fully_complete 
+       @it.status.should == :fully_complete
     end
 
     it "is not returned by class method find_all_not_started" do
@@ -99,7 +99,7 @@ describe Goal do
       Goal.find_all_complete.should == [@it]
     end
   end
-  
+
   context "with no activities" do
     it_should_behave_like 'goal :not_started'
 
@@ -108,7 +108,7 @@ describe Goal do
       it_should_behave_like 'goal :fully_complete'
     end
   end
-  
+
   context "with one incomplete activity" do
     before(:each) do
       @it.activities.create(:complete => false, :name => 'act_incomplete')
@@ -154,11 +154,11 @@ describe Goal do
     it "should have incomplete_activity.count = 0" do
       @it.incomplete_activities.count.should == 0
     end
-    
+
     context "and with goal set as complete" do
       before(:each) { @it.update_attributes!(:complete => true) }
       it_should_behave_like 'goal :fully_complete'
     end
   end
-  
+
 end

@@ -6,11 +6,11 @@ ActionController::Routing::Routes.draw do |map|
     agilezen.resources :activities, :controller => 'agilezen/activities'
   end
 
-  map.resources :activities, 
+  map.resources :activities,
     :member => { :expanded => :get , :new_goal => :get, :create_goal => :post }
 
-  
-  map.resources :goals, 
+
+  map.resources :goals,
     :collection => { :summary => :get } ,
     :member => { :expanded => :get, :new_activity => :get, :create_activity => :post }
 
@@ -34,7 +34,7 @@ ActionController::Routing::Routes.draw do |map|
 
   # Sample resource route with sub-resources:
   #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+
   # Sample resource route with more complex sub-resources
   #   map.resources :products do |products|
   #     products.resources :comments

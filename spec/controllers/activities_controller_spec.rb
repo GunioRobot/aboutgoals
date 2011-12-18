@@ -161,7 +161,7 @@ describe ActivitiesController do
     before(:each) do
       Activity.stub(:find).with("37").and_return(mock_activity(:build_goal =>  mock_goal ))
     end
-  
+
     it "assigns the requested activity as @activity" do
       get :new_goal, :id => "37"
       assigns[:activity].should equal(mock_activity)
@@ -182,7 +182,7 @@ describe ActivitiesController do
     before(:each) do
       Activity.stub(:find).with("37").and_return(mock_activity(:build_goal => mock_goal ))
     end
-  
+
     it "assigns the requested goal as @goal" do
       mock_activity.stub(:build_goal).and_return(mock_goal(:save => true))
       mock_activity.stub(:save => true)

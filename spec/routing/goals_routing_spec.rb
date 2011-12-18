@@ -27,17 +27,17 @@ describe GoalsController do
     end
 
     it "recognizes and generates #create" do
-      { :post => "/goals" }.should route_to(:controller => "goals", :action => "create") 
+      { :post => "/goals" }.should route_to(:controller => "goals", :action => "create")
     end
 
     it "recognizes and generates #update" do
-      { :put => "/goals/1" }.should route_to(:controller => "goals", :action => "update", :id => "1") 
+      { :put => "/goals/1" }.should route_to(:controller => "goals", :action => "update", :id => "1")
     end
 
     it "recognizes and generates #destroy" do
-      { :delete => "/goals/1" }.should route_to(:controller => "goals", :action => "destroy", :id => "1") 
+      { :delete => "/goals/1" }.should route_to(:controller => "goals", :action => "destroy", :id => "1")
     end
-    
+
     it "recognizes and generates #new_activity" do
       { :get => "/goals/1/new_activity" }.should route_to(:controller => "goals", :action => "new_activity", :id => "1")
     end

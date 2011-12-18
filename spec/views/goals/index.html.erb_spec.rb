@@ -6,12 +6,12 @@ describe "/goals/index.html.erb" do
   describe "with some goals" do
     before(:each) do
       assigns[:goals] = [
-        stub_model(Goal, 
+        stub_model(Goal,
           :name => "value for name",
           :detail => "value for detail",
           :complete => false
                   ),
-        stub_model(Goal, 
+        stub_model(Goal,
           :name => "value for another name",
           :detail => "value for different detail",
           :complete => true

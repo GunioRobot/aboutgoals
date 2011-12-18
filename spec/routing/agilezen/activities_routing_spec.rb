@@ -11,7 +11,7 @@ describe Agilezen::ActivitiesController do
     end
 
     it "recognizes and generates #destroy" do
-      { :delete => "/agilezen/activities/1" }.should route_to(:controller => "agilezen/activities", :action => "destroy", :id => "1") 
+      { :delete => "/agilezen/activities/1" }.should route_to(:controller => "agilezen/activities", :action => "destroy", :id => "1")
     end
   end
 end

@@ -1,6 +1,6 @@
 class Goal < ActiveRecord::Base
   has_many :activities
-  
+
   # returns one of 4 statuses for the goal
   # :not_started - goal is not marked as complete and there are no tasks
   # :in_progress - goal is not marked as complete, activities exist but some are not complete
@@ -11,7 +11,7 @@ class Goal < ActiveRecord::Base
     if self.activities.any?
       return :in_progress if self.activities.detect{ |f| !f.complete? }
       return :for_review
-    end 
+    end
     return :not_started
   end
 
@@ -22,12 +22,12 @@ class Goal < ActiveRecord::Base
   def self.find_all_not_started
     find(:all, :conditions =>  { :complete => false }, :include => :activities).select{ |g| g.activities.none? }
   end
-  
+
   def self.find_all_in_progress
     find(:all, :conditions =>  { :complete => false }, :include => :activities).select{ |g| g.activities.any? && g.incomplete_activities.any? }
   end
 
-  def self.find_all_for_review  
+  def self.find_all_for_review
     find(:all, :conditions =>  { :complete => false }, :include => :activities).select{ |g| g.activities.any? && g.incomplete_activities.none? }
   end
 

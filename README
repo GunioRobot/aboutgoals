@@ -8,7 +8,7 @@ AgileZen, or Lighthouse, using them as a source of Activities.
 
 == Install
 
-The usual stuff for a rails app. You need your own config/database.yml though you 
+The usual stuff for a rails app. You need your own config/database.yml though you
 can use the default one. Then (assuming you have bundler) do bundle install and
 rake db:migrate. Start it up and it should be fairly easy to use.
 

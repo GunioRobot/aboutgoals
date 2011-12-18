@@ -27,7 +27,7 @@ describe GoalsController do
       Goal.stub(:find_all_for_review)
       Goal.stub(:find_all_complete)
     end
-    
+
     it "assigns all goals as @goals" do
       Goal.stub(:find).with(:all).and_return([mock_goal])
       get :summary
@@ -63,7 +63,7 @@ describe GoalsController do
     before(:each) do
       Goal.stub(:find).with("37").and_return(mock_goal(:activities =>  'the associated activities' ))
     end
-  
+
     it "assigns the requested goal as @goal" do
       get :show, :id => "37"
       assigns[:goal].should equal(mock_goal)
@@ -79,7 +79,7 @@ describe GoalsController do
     before(:each) do
       Goal.stub(:find).with("37").and_return(mock_goal(:activities => 'some activities'))
     end
-     
+
     it "assigns the requested goal as @goal" do
       get :expanded, :id => "37"
       assigns[:goal].should equal(mock_goal)
@@ -203,7 +203,7 @@ describe GoalsController do
       assoc_proxy.stub(:new).and_return(mock_activity)
       Goal.stub(:find).with("37").and_return(mock_goal(:activities =>  assoc_proxy ))
     end
-  
+
     it "assigns the requested goal as @goal" do
       get :new_activity, :id => "37"
       assigns[:goal].should equal(mock_goal)
@@ -226,7 +226,7 @@ describe GoalsController do
       @assoc_proxy = stub('assoc_proxy')
       Goal.stub(:find).with("37").and_return(mock_goal(:activities =>  @assoc_proxy ))
     end
-  
+
     it "assigns the requested goal as @goal" do
       @assoc_proxy.stub(:new).and_return(mock_activity(:save => true))
       post :create_activity, :id => "37"

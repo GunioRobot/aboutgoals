@@ -21,10 +21,10 @@ describe "/activities/edit.html.erb" do
       with_tag('input#activity_complete[name=?]', "activity[complete]")
     end
   end
-  
+
   it "should allow goal to be selected" do
-    render 
+    render
     response.should have_tag('select[name=?]','activity[goal_id]')
   end
-  
+
 end

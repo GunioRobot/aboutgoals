@@ -19,15 +19,15 @@ describe Agilezen::SourcesController do
     end
 
     it "recognizes and generates #create" do
-      { :post => "/agilezen/sources" }.should route_to(:controller => "agilezen/sources", :action => "create") 
+      { :post => "/agilezen/sources" }.should route_to(:controller => "agilezen/sources", :action => "create")
     end
 
     it "recognizes and generates #update" do
-      { :put => "/agilezen/sources/1" }.should route_to(:controller => "agilezen/sources", :action => "update", :id => "1") 
+      { :put => "/agilezen/sources/1" }.should route_to(:controller => "agilezen/sources", :action => "update", :id => "1")
     end
 
     it "recognizes and generates #destroy" do
-      { :delete => "/agilezen/sources/1" }.should route_to(:controller => "agilezen/sources", :action => "destroy", :id => "1") 
+      { :delete => "/agilezen/sources/1" }.should route_to(:controller => "agilezen/sources", :action => "destroy", :id => "1")
     end
   end
 end
